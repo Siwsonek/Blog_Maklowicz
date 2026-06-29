@@ -144,6 +144,10 @@
       font-weight: bold;
     }
 
+    .small-btn:hover {
+      text-decoration: underline;
+    }
+
     .categories {
       background-color: #e8d7bd;
     }
@@ -155,16 +159,30 @@
       text-align: center;
     }
 
-    .category {
+    .category-card {
+      display: block;
       background-color: #fffaf2;
+      color: #2b2118;
+      text-decoration: none;
       padding: 30px 20px;
       border-radius: 18px;
       box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .category h3 {
+    .category-card h3 {
       margin-bottom: 10px;
       color: #5d3a1a;
+      font-size: 22px;
+    }
+
+    .category-card p {
+      color: #2b2118;
+    }
+
+    .category-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
     }
 
     .ethics {
@@ -309,31 +327,28 @@
   <section class="categories" id="kategorie">
     <h2 class="section-title">Kategorie</h2>
 
-   <section class="categories">
-  <h2>Kategorie</h2>
+    <div class="category-grid">
+      <a href="podroze.html" class="category-card">
+        <h3>Podróże</h3>
+        <p>Miasta, trasy, weekendowe wypady i miejsca warte odwiedzenia.</p>
+      </a>
 
-  <div class="category-grid">
-    <a href="podroze.html" class="category-card">
-      <h3>Podróże</h3>
-      <p>Miasta, trasy, weekendowe wypady i miejsca warte odwiedzenia.</p>
-    </a>
+      <a href="kuchnia.html" class="category-card">
+        <h3>Kuchnia</h3>
+        <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki.</p>
+      </a>
 
-    <a href="kuchnia.html" class="category-card">
-      <h3>Kuchnia</h3>
-      <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki.</p>
-    </a>
+      <a href="mapa-smakow.html" class="category-card">
+        <h3>Mapa smaków</h3>
+        <p>Subiektywna mapa miejsc, w których warto coś zjeść.</p>
+      </a>
 
-    <a href="mapa-smakow.html" class="category-card">
-      <h3>Mapa smaków</h3>
-      <p>Subiektywna mapa miejsc, w których warto coś zjeść.</p>
-    </a>
-
-    <a href="poradniki.html" class="category-card">
-      <h3>Poradniki</h3>
-      <p>Jak planować wyjazdy, oszczędzać i odkrywać mniej oczywiste miejsca.</p>
-    </a>
-  </div>
-</section>
+      <a href="poradniki.html" class="category-card">
+        <h3>Poradniki</h3>
+        <p>Jak planować wyjazdy, oszczędzać i odkrywać mniej oczywiste miejsca.</p>
+      </a>
+    </div>
+  </section>
 
   <section class="ethics" id="etyka">
     <h2 class="section-title">Nasze zasady redakcyjne</h2>
