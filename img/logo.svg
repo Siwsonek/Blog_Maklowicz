@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 258" role="img" aria-label="Szlakiem Smaku — blog podróżniczo-kulinarny">
+  <g transform="translate(150,6)">
+    <!-- pinezka -->
+    <path d="M60 142C40 110 12 86 12 52A48 48 0 1 1 108 52C108 86 80 110 60 142Z" fill="#8b2f2f"/>
+    <!-- talerz -->
+    <circle cx="60" cy="50" r="34" fill="#f7efe3"/>
+    <g fill="#e5b45b">
+      <rect x="44.6" y="24" width="2.4" height="13" rx="1.2"/>
+      <rect x="48.4" y="24" width="2.4" height="13" rx="1.2"/>
+      <rect x="52.2" y="24" width="2.4" height="13" rx="1.2"/>
+      <rect x="56.0" y="24" width="2.4" height="13" rx="1.2"/>
+      <rect x="44.6" y="35.5" width="13.8" height="3.6" rx="1.8"/>
+      <rect x="49.6" y="38" width="3.8" height="56" rx="1.9"/>
+      <ellipse cx="70" cy="33" rx="8.6" ry="11"/>
+      <rect x="68.1" y="40" width="3.8" height="54" rx="1.9"/>
+    </g>
+  </g>
+  <!-- nazwa -->
+  <text x="210" y="206" text-anchor="middle"
+        font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
+        font-size="44" font-weight="700" fill="#5d3a1a" letter-spacing="0.5">Szlakiem Smaku</text>
+  <!-- podtytuł -->
+  <text x="210" y="236" text-anchor="middle"
+        font-family="'Inter', Arial, Helvetica, sans-serif"
+        font-size="16" fill="#8a7458" letter-spacing="2">blog podróżniczo-kulinarny</text>
+</svg>
