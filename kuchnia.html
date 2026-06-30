@@ -2,30 +2,291 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Kuchnia - Smaki Świata</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuchnia - Szlakiem Smaku</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7efe3;
+      color: #2b2118;
+      line-height: 1.6;
+    }
+
+    .category-hero {
+      min-height: 420px;
+      background:
+        linear-gradient(rgba(43, 33, 24, 0.65), rgba(43, 33, 24, 0.65)),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, serif;
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: white;
+      color: #5d3a1a;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 60px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      color: #5d3a1a;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 18px;
+    }
+
+    .blog-list {
+      max-width: 1100px;
+      margin: 40px auto 70px;
+      padding: 0 20px;
+      display: grid;
+      gap: 35px;
+    }
+
+    .blog-post {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      background-color: #fffaf2;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 30px;
+    }
+
+    .post-meta {
+      color: #8b2f2f;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .post-content h2 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .post-content p {
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .tags {
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #e8d7bd;
+      color: #5d3a1a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background-color: #642020;
+    }
+
+    footer {
+      background-color: #2b2118;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content h1 {
+        font-size: 42px;
+      }
+
+      .blog-post {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-post img {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="subpage-header">
-    <h1>Kuchnia</h1>
-    <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki.</p>
-    <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+  <header class="category-hero">
+    <div class="hero-content">
+     <h1>Kuchnia</h1>
+<p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki z różnych zakątków Polski i Europy.</p>
+      <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+    </div>
   </header>
 
+  <section class="intro">
+    <h2>Wpisy z kategorii: Podróże</h2>
+    <p>
+      W tej części bloga opisujemy ciekawe kierunki na krótkie i dłuższe wyjazdy. 
+      Skupiamy się na atmosferze miejsc, trasach spacerowych, lokalnych zwyczajach i tym, co można zobaczyć poza najbardziej oczywistymi atrakcjami.
+    </p>
+  </section>
+
   <main class="blog-list">
+
     <article class="blog-post">
-      <h2>Najlepszy makaron we Włoszech</h2>
-      <p>O tym, dlaczego prosty makaron potrafi smakować lepiej niż najdroższe dania.</p>
-      <a href="#">Czytaj więcej</a>
+      <img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=900&q=80" alt="Klimatyczna ulica w Krakowie">
+
+      <div class="post-content">
+        <div class="post-meta">Podróże • Polska • 12 czerwca 2026</div>
+        <h2>Weekend w Krakowie szlakiem obwarzanka</h2>
+        <p>
+          Kraków można zwiedzać klasycznie: Rynek, Wawel, Sukiennice i Kazimierz. Można jednak pójść inną drogą — przez smak, zapach świeżego pieczywa i rozmowy z ludźmi spotkanymi po drodze.
+        </p>
+        <p>
+          W tym wpisie pokazujemy plan weekendu, w którym zabytki mieszają się z lokalnymi kawiarniami, małymi piekarniami i miejscami, gdzie turystyczny Kraków ustępuje temu bardziej prawdziwemu.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Kraków</span>
+          <span class="tag">weekend</span>
+          <span class="tag">Polska</span>
+        </div>
+
+        <a href="krakow.html" class="read-more">Czytaj więcej</a>
+      </div>
     </article>
 
     <article class="blog-post">
-      <h2>Smaki Bałkanów</h2>
-      <p>Mięso z grilla, świeże warzywa i kuchnia, która najlepiej smakuje przy drodze.</p>
-      <a href="#">Czytaj więcej</a>
+      <img src="https://images.unsplash.com/photo-1555990538-c48dbe71e3f1?auto=format&fit=crop&w=900&q=80" alt="Budapeszt i miejski krajobraz">
+
+      <div class="post-content">
+        <div class="post-meta">Podróże • Węgry • 18 czerwca 2026</div>
+        <h2>Budapeszt od kuchni i od strony Dunaju</h2>
+        <p>
+          Budapeszt to miasto, które najlepiej poznaje się powoli. Z jednej strony monumentalne mosty, wzgórze zamkowe i widok na Dunaj, z drugiej bary, targi i kuchnia pełna papryki.
+        </p>
+        <p>
+          Proponujemy trasę, która łączy spacer po najważniejszych punktach miasta z kulinarnymi przystankami: od langosza, przez gulasz, aż po wieczorne kawiarnie.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Budapeszt</span>
+          <span class="tag">city break</span>
+          <span class="tag">Węgry</span>
+        </div>
+
+        <a href="budapeszt.html" class="read-more">Czytaj więcej</a>
+      </div>
     </article>
+
+    <article class="blog-post">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Plaża i krajobraz podróżniczy">
+
+      <div class="post-content">
+        <div class="post-meta">Podróże • Poradnik • 24 czerwca 2026</div>
+        <h2>Jak zaplanować tani weekendowy wyjazd?</h2>
+        <p>
+          Dobry wyjazd nie musi oznaczać dużego budżetu. Czasem wystarczy dobra organizacja, elastyczność i wybór miejsc, które nie są oczywiste dla większości turystów.
+        </p>
+        <p>
+          W artykule pokazujemy, jak wybrać kierunek, kiedy rezerwować nocleg, jak ograniczyć koszty jedzenia i jak ułożyć plan, żeby nie stracić czasu na przypadkowe decyzje.
+        </p>
+
+        <div class="tags">
+          <span class="tag">tanie podróże</span>
+          <span class="tag">planowanie</span>
+          <span class="tag">weekend</span>
+        </div>
+
+        <a href="tanie-podroze.html" class="read-more">Czytaj więcej</a>
+      </div>
+    </article>
+
   </main>
+
+  <footer>
+    <p><strong>Szlakiem Smaku</strong></p>
+    <p>Blog podróżniczo-kulinarny tworzony w ramach projektu studenckiego.</p>
+  </footer>
 
 </body>
 </html>
