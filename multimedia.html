@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Multimedia portalu Szlakiem Smaku: materiały wideo, podcast i infografika — wszystkie z transkrypcją i opisem dla dostępności." />
+  <meta name="description" content="Multimedia portalu Szlakiem Smaku: polecany materiał wideo i podcast (z atrybucją źródła) oraz własna infografika — każdy element z opisem dla dostępności." />
   <title>Multimedia - Szlakiem Smaku</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -21,21 +22,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     header {
       background: linear-gradient(rgba(43, 33, 24, 0.7), rgba(43, 33, 24, 0.7)),
@@ -124,85 +111,75 @@
       margin-bottom: 10px;
     }
 
-    /* --- wideo placeholder --- */
-    .video-frame {
+    /* --- miniatura wideo (link do YouTube) --- */
+    .video-facade {
       position: relative;
+      display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: 16px;
       overflow: hidden;
-      background:
-        linear-gradient(rgba(43, 33, 24, 0.55), rgba(43, 33, 24, 0.55)),
-        url("https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1200&q=80");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
       margin: 18px 0;
+      background-color: #2b2118;
+      text-decoration: none;
     }
-
-    .play-btn {
-      width: 86px;
-      height: 86px;
+    .video-facade img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .video-facade:hover img { transform: scale(1.04); }
+    .video-facade .play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 84px;
+      height: 84px;
       border-radius: 50%;
       background-color: rgba(139, 47, 47, 0.92);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #fff;
       font-size: 34px;
-      margin-bottom: 14px;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+    .video-facade:hover .play { background-color: rgba(100, 32, 32, 0.96); }
+    .video-facade .cap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(transparent, rgba(43, 33, 24, 0.88));
+      color: #fff;
+      padding: 30px 16px 12px;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .video-frame .frame-label { font-weight: bold; font-size: 18px; }
-    .video-frame .frame-sub { font-size: 14px; opacity: 0.9; }
-
-    /* --- audio placeholder --- */
-    .audio-player {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      background-color: #2b2118;
-      color: white;
-      border-radius: 16px;
-      padding: 18px 22px;
+    /* --- embed audio (Spotify) --- */
+    .embed-audio {
       margin: 18px 0;
     }
-
-    .audio-play {
-      flex: 0 0 auto;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background-color: #e5b45b;
-      color: #2b2118;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
+    .embed-audio iframe {
+      width: 100%;
+      border-radius: 12px;
+      border: 0;
     }
 
-    .audio-info { flex: 1; }
-    .audio-info strong { display: block; font-size: 16px; }
-    .audio-info span { font-size: 13px; opacity: 0.85; }
-
-    .audio-bar {
-      height: 7px;
-      background-color: #4a3c2e;
-      border-radius: 20px;
-      margin-top: 8px;
-      overflow: hidden;
+    /* --- atrybucja źródła --- */
+    .attrib {
+      font-size: 14px;
+      color: #5d4f3f;
+      background-color: #f7efe3;
+      border-left: 4px solid #8b2f2f;
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+      margin-top: 14px;
     }
-    .audio-bar i {
-      display: block;
-      width: 28%;
-      height: 100%;
-      background-color: #e5b45b;
-    }
+    .attrib a { color: #8b2f2f; font-weight: bold; }
 
     /* --- transkrypcja (details) --- */
     details {
@@ -336,8 +313,8 @@
 
     <div class="hero">
       <h1>Multimedia</h1>
-      <p>Portal to nie tylko tekst. Tu zbieramy materiały wideo, audio i grafiki —
-        każdy z transkrypcją lub opisem, żeby treść była dostępna dla wszystkich.</p>
+      <p>Portal to nie tylko tekst. Polecamy tu realne materiały wideo i audio — zawsze z podaniem
+        źródła i autora — oraz prezentujemy własną infografikę. Każdy element ma opis dla dostępności.</p>
     </div>
   </header>
 
@@ -350,70 +327,66 @@
         Do każdego dodajemy napisy i transkrypcję dla osób niesłyszących.</p>
 
       <div class="media-card">
-        <span class="media-tag">WIDEO</span>
-        <h3>Kuchnia jako paszport — w drodze z Makłowiczem</h3>
+        <span class="media-tag">WIDEO • materiał polecany</span>
+        <h3>„Madziarskie odkrycia” — Robert Makłowicz w Budapeszcie</h3>
+        <p>
+          Polecamy odcinek, który najlepiej oddaje filozofię naszego portalu: Makłowicz zaczyna zwiedzanie
+          Budapesztu nie od pomnika, tylko od hali targowej. To dokładnie ten sposób patrzenia na miasto,
+          który opisujemy w <a href="budapeszt.html" style="color:#8b2f2f;font-weight:bold;">korespondencji „Budapeszt od kuchni”</a>.
+        </p>
 
-        <div class="video-frame" role="img"
-             aria-label="Kadr z materiału wideo: stół z lokalnymi potrawami na tle uliczki starego miasta.">
-          <div class="play-btn" aria-hidden="true">▶</div>
-          <span class="frame-label">Materiał wideo (przykład)</span>
-          <span class="frame-sub">3:42 • z napisami</span>
-        </div>
+        <a class="video-facade" href="https://www.youtube.com/watch?v=zFQxzVgzQ9M"
+           target="_blank" rel="noopener"
+           aria-label="Obejrzyj na YouTube: Robert Makłowicz, „Madziarskie odkrycia” (odcinek 156)">
+          <img src="https://img.youtube.com/vi/zFQxzVgzQ9M/hqdefault.jpg"
+               alt="Miniatura odcinka „Madziarskie odkrycia” Roberta Makłowicza — kadr z Budapesztu"
+               width="1280" height="720" loading="lazy">
+          <span class="play" aria-hidden="true">▶</span>
+          <span class="cap">Odtwórz na YouTube · odc. 156 „Madziarskie odkrycia”</span>
+        </a>
 
-        <details>
-          <summary>Pokaż napisy / transkrypcję</summary>
-          <p class="speaker"><strong>Narrator:</strong> Najkrótsza droga do poznania miasta nie prowadzi
-            przez muzeum, tylko przez targ. To tutaj widać, czym naprawdę żyją mieszkańcy.</p>
-          <p class="speaker"><strong>Narrator:</strong> Zaczynamy od porannej kawy w bocznej uliczce,
-            potem ruszamy między stragany po sezonowe owoce, sery i świeże pieczywo.</p>
-          <p class="speaker"><strong>Sprzedawca:</strong> To ser z mleka owczego, robimy go tak samo
-            od trzech pokoleń. Najlepszy z odrobiną miodu.</p>
-          <p class="speaker"><strong>Narrator:</strong> I o to właśnie chodzi w podróżowaniu smakiem —
-            jedzenie jest pretekstem do rozmowy, a rozmowa do zrozumienia miejsca.</p>
-        </details>
+        <p class="alt-note"><strong>Dostępność:</strong> odcinek ma napisy (CC) włączane w odtwarzaczu YouTube
+          przyciskiem „Napisy”. Treść: gospodarz oprowadza po budapeszteńskiej hali targowej i lokalnych
+          jadłodajniach, łącząc kuchnię węgierską z historią i obyczajem miasta.</p>
 
-        <p class="alt-note"><strong>Opis dla dostępności:</strong> film przedstawia spacer po lokalnym
-          targu i przygotowywanie regionalnych potraw; kluczowe wypowiedzi są dostępne w transkrypcji powyżej.
-          To miejsce na własne nagranie zespołu redakcyjnego.</p>
+        <p class="attrib">
+          Materiał: kanał <a href="https://www.youtube.com/@Robert_Maklowicz" rel="noopener">Robert Makłowicz</a>
+          (YouTube), odc. 156 „Madziarskie odkrycia”, publikacja 2023. Osadzamy go jako materiał polecany —
+          prawa autorskie należą do twórcy. Dostęp: 30 czerwca 2026.
+        </p>
       </div>
     </section>
 
     <!-- PODCAST -->
     <section style="background-color:#fffaf2;">
       <h2 class="section-title">Podcast / audio</h2>
-      <p class="section-lead">Rozmowy o podróżach kulinarnych w formie audio.
-        Każdy odcinek ma pełną transkrypcję tekstową.</p>
+      <p class="section-lead">Własnego podcastu jeszcze nie nagrywamy — dlatego w tym dziale
+        polecamy audycję, która najbliższa jest naszej idei podróżowania śladem smaku.</p>
 
       <div class="media-card" style="background-color:#f7efe3;">
-        <span class="media-tag">AUDIO</span>
-        <h3>Odcinek 1: Smak jako pamiątka z podróży</h3>
+        <span class="media-tag">AUDIO • podcast polecany</span>
+        <h3>„Kuchniokracja” — podróż śladem smaków i aromatów</h3>
+        <p>
+          Audycja Magdaleny Tomaszewskiej-Bolałek o antropologii i historii jedzenia oraz turystyce
+          kulinarnej. To dokładnie ta perspektywa — jedzenie jako klucz do kultury miejsca — którą
+          rozwijamy na „Szlakiem Smaku”.
+        </p>
 
-        <div class="audio-player">
-          <div class="audio-play" aria-hidden="true">▶</div>
-          <div class="audio-info">
-            <strong>Szlakiem Smaku — Podcast</strong>
-            <span>Odcinek 1 • 24:10</span>
-            <div class="audio-bar" aria-hidden="true"><i></i></div>
-          </div>
+        <div class="embed-audio">
+          <iframe src="https://open.spotify.com/embed/show/2xNldbvR4UtK0fzXGCaqQC"
+                  title="Podcast „Kuchniokracja” w odtwarzaczu Spotify"
+                  height="352" loading="lazy"
+                  allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         </div>
 
-        <details>
-          <summary>Pokaż transkrypcję odcinka</summary>
-          <p class="speaker"><strong>Prowadząca:</strong> Witajcie w „Szlakiem Smaku". Dziś rozmawiamy o tym,
-            dlaczego najlepiej zapamiętujemy miejsca przez jedzenie.</p>
-          <p class="speaker"><strong>Gość:</strong> Bo smak działa na pamięć inaczej niż zdjęcie. Zapach
-            langosza czy świeżego pieczywa potrafi wrócić do nas po latach i od razu przenieść w konkretne miejsce.</p>
-          <p class="speaker"><strong>Prowadząca:</strong> Masz jakąś radę dla kogoś, kto jedzie na pierwszy
-            tani city break?</p>
-          <p class="speaker"><strong>Gość:</strong> Zejdź z głównej ulicy. Dwie, trzy przecznice dalej ceny
-            spadają, a jedzenie robi się prawdziwe. I pytaj lokalnych, gdzie sami jadają.</p>
-          <p class="speaker"><strong>Prowadząca:</strong> Dzięki. W kolejnym odcinku ruszamy szlakiem
-            węgierskiej papryki.</p>
-        </details>
+        <p class="alt-note"><strong>Dostępność:</strong> odtwarzacz Spotify ma własne sterowanie z klawiatury,
+          a transkrypcje wybranych odcinków bywają dostępne w aplikacji Spotify.</p>
 
-        <p class="alt-note"><strong>Dostępność:</strong> pełna treść rozmowy znajduje się w transkrypcji powyżej,
-          więc odcinek jest dostępny także dla osób niesłyszących. Placeholder można podmienić na realny
-          odcinek (np. osadzenie ze Spotify) z podaniem źródła.</p>
+        <p class="attrib">
+          Podcast: „Kuchniokracja”, autorka Magdalena Tomaszewska-Bolałek, dostępny na
+          <a href="https://open.spotify.com/show/2xNldbvR4UtK0fzXGCaqQC" rel="noopener">Spotify</a>.
+          Osadzamy jako materiał polecany — prawa należą do autorki. Dostęp: 30 czerwca 2026.
+        </p>
       </div>
     </section>
 
@@ -452,6 +425,12 @@
             Pochodzi z wielonarodowej rodziny (ukraińsko-ormiańsko-polsko-węgiersko-austriackiej),
             co współtworzy jego otwartość na smaki świata.</p>
         </details>
+
+        <p class="attrib" style="margin-top:18px;">
+          Źródła danych: Wikipedia (biografia Roberta Makłowicza), serwis
+          <a href="https://www.maklowicz.pl/" rel="noopener">maklowicz.pl</a>, doniesienia o gatunku
+          <em>Mesobiotus maklowiczi</em> (Kopalnia Wiedzy). Opracowanie własne. Dostęp: 30 czerwca 2026.
+        </p>
       </div>
     </section>
 
@@ -459,7 +438,7 @@
 
   <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>
-    <p>Materiały multimedialne to placeholdery projektu studenckiego — można je podmienić na własne nagrania.</p>
+    <p>Film i podcast osadzamy jako materiały polecane, z podaniem źródła i autora; infografika „Makłowicz w liczbach” to nasze własne opracowanie.</p>
     <p>Kontakt: <a href="mailto:kontakt@szlakiemsmaku.pl">kontakt@szlakiemsmaku.pl</a></p>
     <p><a href="index.html">← Wróć na stronę główną</a></p>
   </footer>

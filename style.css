@@ -1,0 +1,99 @@
+/* ===========================================================
+   Szlakiem Smaku — wspólne style (tokeny + komponenty bazowe)
+   Dołączane na każdej podstronie przez <link rel="stylesheet">.
+   Style specyficzne dla układu danej strony pozostają w jej <style>.
+   =========================================================== */
+
+:root {
+  /* kolory */
+  --cream: #f7efe3;
+  --cream-light: #fffaf2;
+  --ink: #2b2118;
+  --brick: #8b2f2f;
+  --brick-dark: #642020;
+  --brown: #5d3a1a;
+  --gold: #e5b45b;
+  --sand: #e8d7bd;
+  --muted: #5d4f3f;
+
+  /* promienie */
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 22px;
+  --pill: 30px;
+
+  /* cienie */
+  --shadow-sm: 0 5px 12px rgba(0, 0, 0, 0.08);
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.18);
+
+  /* odstępy */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 28px;
+}
+
+/* --- dostępność --- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--brick);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 10px 0;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: bold;
+}
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* szanuj ustawienie systemowe „ogranicz ruch” */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- wspólne komponenty artykułów --- */
+.genre-badge {
+  display: inline-block;
+  background: var(--brown);
+  color: var(--cream-light);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #3a2c1e;
+  border-left: 5px solid var(--brick);
+  background: var(--cream);
+  padding: 18px 22px;
+  border-radius: 0 12px 12px 0;
+  margin: 22px 0 10px;
+}
+
+.sources {
+  margin-top: 38px;
+  background: #f0e6d4;
+  border-radius: 14px;
+  padding: 20px 24px;
+  font-size: 15px;
+}
+.sources h2 { font-size: 18px; margin: 0 0 8px; font-family: Arial, sans-serif; }
+.sources ul { margin: 0 0 0 18px; }
+.sources li { margin-bottom: 5px; }

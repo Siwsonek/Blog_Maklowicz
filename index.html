@@ -6,6 +6,7 @@
   <title>Szlakiem Smaku - blog podróżniczo-kulinarny</title>
   <meta name="description" content="Szlakiem Smaku — blog podróżniczo-kulinarny o miejscach, które najlepiej poznaje się przez lokalne jedzenie, historię i rozmowy z ludźmi." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -21,21 +22,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     .brand-lockup {
       display: flex;
@@ -387,7 +374,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#wpisy">Przejdź do treści</a>
+  <a class="skip-link" href="#tresc">Przejdź do treści</a>
 
   <header>
     <nav aria-label="Menu główne">
@@ -422,6 +409,8 @@
       <a href="#wpisy" class="btn">Zobacz najnowsze wpisy</a>
     </div>
   </header>
+
+  <main id="tresc" tabindex="-1">
 
   <section class="about" id="o-nas">
     <h2 class="section-title">O naszym blogu</h2>
@@ -458,10 +447,10 @@
     <div class="news-grid">
       <div class="news-item">
         <span class="date">30 czerwca 2026</span>
-        <h3>Ruszył podcast „Szlakiem Smaku”</h3>
+        <h3>Nowy dział Multimedia</h3>
         <p>
-          W dziale Multimedia udostępniliśmy pierwszy odcinek podcastu wraz z pełną transkrypcją.
-          <a href="multimedia.html">Posłuchaj →</a>
+          Polecamy w nim realne materiały wideo i audio o podróżowaniu smakiem — zawsze z podaniem źródła.
+          <a href="multimedia.html">Zobacz →</a>
         </p>
       </div>
 
@@ -620,6 +609,8 @@
       </ul>
     </div>
   </section>
+
+  </main>
 
   <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>

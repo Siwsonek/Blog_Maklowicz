@@ -6,6 +6,7 @@
   <title>Kuchnia - Szlakiem Smaku</title>
   <meta name="description" content="Gdzie zjeść w europejskich stolicach — propozycje dla różnych budżetów: tanio, średnio i premium." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -21,21 +22,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     .category-hero {
       min-height: 430px;
@@ -257,7 +244,7 @@
           Idealna opcja na szybki i tani posiłek. Klasyczny langosz z czosnkiem, śmietaną i serem jest sycący, lokalny i bardzo konkretny.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które chcą zjeść szybko i tanio między zwiedzaniem.</p>
-        <div class="score">Cena: niska • Klimat: 8/10 • Sytość: 10/10</div>
+        <div class="score">Cena: niska • Sycące i konkretne • Najlepsze w biegu</div>
       </article>
 
       <article class="food-place">
@@ -267,7 +254,7 @@
           Dobry wybór na spokojniejszy obiad. Węgierska kuchnia jest aromatyczna, rozgrzewająca i bardzo dobra po całym dniu chodzenia.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które chcą spróbować klasycznej kuchni bez przepłacania.</p>
-        <div class="score">Cena: średnia • Klimat: 9/10 • Smak: 9/10</div>
+        <div class="score">Cena: średnia • Rozgrzewające • Na spokojny obiad</div>
       </article>
 
       <article class="food-place">
@@ -277,7 +264,7 @@
           Opcja na wieczór, kiedy liczy się nie tylko jedzenie, ale też atmosfera. Widok na rzekę i mosty robi ogromną robotę.
         </p>
         <p><strong>Dla kogo?</strong> Na randkę, specjalny wieczór albo zakończenie wyjazdu.</p>
-        <div class="score">Cena: wyższa • Klimat: 10/10 • Efekt wow: 9/10</div>
+        <div class="score">Cena: wyższa • Widok na Dunaj • Na wyjątkowy wieczór</div>
       </article>
     </div>
   </section>
@@ -293,7 +280,7 @@
           Szybkie, tanie i dobre rozwiązanie na start dnia. W Pradze łatwo znaleźć małe punkty, gdzie można zjeść coś prostego przed zwiedzaniem.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które wolą oszczędzić budżet na późniejszy obiad.</p>
-        <div class="score">Cena: niska • Klimat: 7/10 • Praktyczność: 9/10</div>
+        <div class="score">Cena: niska • Szybkie • Dobre na start dnia</div>
       </article>
 
       <article class="food-place">
@@ -303,7 +290,7 @@
           Knedliki, mięso w sosie i lokalny klimat. Taki obiad jest sycący, tradycyjny i dobrze pasuje do chłodniejszych dni.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które chcą poczuć klasyczny smak Czech.</p>
-        <div class="score">Cena: średnia • Klimat: 8.5/10 • Sytość: 9/10</div>
+        <div class="score">Cena: średnia • Sycące • Klasyczny smak Czech</div>
       </article>
 
       <article class="food-place">
@@ -313,7 +300,7 @@
           Dobra opcja dla tych, którzy chcą spróbować kuchni czeskiej w bardziej eleganckim wydaniu, ale nadal z lokalnym charakterem.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które chcą czegoś bardziej dopracowanego.</p>
-        <div class="score">Cena: wyższa • Klimat: 9/10 • Smak: 9/10</div>
+        <div class="score">Cena: wyższa • Eleganckie • Lokalny charakter</div>
       </article>
     </div>
   </section>
@@ -329,7 +316,7 @@
           Pizza na kawałki to jedna z najlepszych opcji na tani posiłek w Rzymie. Szybko, lokalnie i bez siedzenia godzinami w restauracji.
         </p>
         <p><strong>Dla kogo?</strong> Dla osób, które chcą dużo zwiedzać i jeść w biegu.</p>
-        <div class="score">Cena: niska • Klimat: 8/10 • Smak: 9/10</div>
+        <div class="score">Cena: niska • Na wynos • Idealne między zwiedzaniem</div>
       </article>
 
       <article class="food-place">
@@ -339,7 +326,7 @@
           Carbonara, cacio e pepe albo amatriciana. Proste dania, które w Rzymie smakują najlepiej wtedy, gdy lokal nie próbuje być zbyt turystyczny.
         </p>
         <p><strong>Dla kogo?</strong> Dla fanów klasycznej włoskiej kuchni.</p>
-        <div class="score">Cena: średnia • Klimat: 9/10 • Smak: 10/10</div>
+        <div class="score">Cena: średnia • Proste i wyborne • Dla fanów klasyki</div>
       </article>
 
       <article class="food-place">
@@ -349,7 +336,7 @@
           Rzym wieczorem ma niesamowity klimat. Dobra kolacja przy małej uliczce potrafi być jednym z najmocniejszych wspomnień z wyjazdu.
         </p>
         <p><strong>Dla kogo?</strong> Na spokojny wieczór i pełne włoskie doświadczenie.</p>
-        <div class="score">Cena: wyższa • Klimat: 10/10 • Efekt wow: 9/10</div>
+        <div class="score">Cena: wyższa • Klimatyczne • Na pełne włoskie doświadczenie</div>
       </article>
     </div>
   </section>

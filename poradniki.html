@@ -6,6 +6,7 @@
   <title>Poradniki - Szlakiem Smaku</title>
   <meta name="description" content="Praktyczne poradniki o tańszym i wygodniejszym podróżowaniu oraz lepszym planowaniu jedzenia po drodze." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -21,21 +22,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     .read-more.soon {
       background-color: #b9a88c;
@@ -197,6 +184,13 @@
       background-color: #642020;
     }
 
+    .guide-soon {
+      font-size: 14px;
+      color: #5d4f3f;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
     footer {
       background-color: #2b2118;
       color: white;
@@ -284,7 +278,7 @@
           <li>nie zmieniaj dzielnic co 30 minut.</li>
         </ul>
 
-        <span class="read-more soon" aria-disabled="true">Wkrótce</span>
+        <p class="guide-soon">Pełny poradnik w przygotowaniu — powyżej skrót najważniejszych zasad.</p>
       </div>
 
       <div class="guide-box">
@@ -307,7 +301,7 @@
           <li>lista miejsc offline przydaje się, gdy internet zawodzi.</li>
         </ul>
 
-        <span class="read-more soon" aria-disabled="true">Wkrótce</span>
+        <p class="guide-soon">Pełny poradnik w przygotowaniu — powyżej skrót najważniejszych zasad.</p>
       </div>
 
       <div class="guide-box">

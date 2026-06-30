@@ -6,6 +6,7 @@
   <title>Podróże - Szlakiem Smaku</title>
   <meta name="description" content="Tanie kierunki na city break i weekendowe wyjazdy — z oceną opłacalności, klimatu i jedzenia." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -21,21 +22,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     .read-more.soon {
       background-color: #b9a88c;
@@ -206,6 +193,26 @@
       background-color: #642020;
     }
 
+    .soon-strip {
+      max-width: 1000px;
+      margin: 0 auto 70px;
+      padding: 32px 30px;
+      background-color: #fffaf2;
+      border-left: 6px solid #b9a88c;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    .soon-strip h2 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .soon-strip > p { margin-bottom: 14px; }
+    .soon-list { margin-left: 20px; }
+    .soon-list li { margin-bottom: 10px; }
+    .soon-list strong { color: #5d3a1a; }
+
     footer {
       background-color: #2b2118;
       color: white;
@@ -276,29 +283,10 @@
         </p>
         <p class="budget">Budżet: średnio-tani</p>
         <div class="rating-box">
-          Opłacalność: 9/10<br>
-          Jedzenie: 8/10<br>
-          Klimat miasta: 9/10
+          Mocne strony: termy, widoki nad Dunajem, lokalne hale targowe.<br>
+          Dobre na 2–3 dni, także bez samochodu.
         </div>
         <a href="budapeszt.html" class="read-more">Zobacz plan wyjazdu</a>
-      </div>
-    </article>
-
-    <article class="travel-card">
-      <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Kolorowe kamienice i wieże starówki w Pradze">
-      <div class="travel-content">
-        <span class="travel-label">Czechy</span>
-        <h2>Praga</h2>
-        <p>
-          Klasyk na krótki wyjazd. Praga jest piękna, dobrze skomunikowana i pełna miejsc, w których można zjeść dobrze bez wydawania fortuny.
-        </p>
-        <p class="budget">Budżet: średni</p>
-        <div class="rating-box">
-          Opłacalność: 8/10<br>
-          Jedzenie: 8/10<br>
-          Klimat miasta: 10/10
-        </div>
-        <span class="read-more soon" aria-disabled="true">Plan wkrótce</span>
       </div>
     </article>
 
@@ -312,69 +300,25 @@
         </p>
         <p class="budget">Budżet: tani/średni</p>
         <div class="rating-box">
-          Opłacalność: 8.5/10<br>
-          Jedzenie: 9/10<br>
-          Klimat miasta: 9/10
+          Mocne strony: Kazimierz, Stare Miasto, targi i tanie dobre jedzenie.<br>
+          Idealny na krótki weekend.
         </div>
         <a href="krakow.html" class="read-more">Zobacz plan wyjazdu</a>
       </div>
     </article>
 
-    <article class="travel-card">
-      <img src="wilno.jpg" alt="Stare miasto w Wilnie z czerwonymi dachami i wieżami kościołów">
-      <div class="travel-content">
-        <span class="travel-label">Litwa</span>
-        <h2>Wilno</h2>
-        <p>
-          Niedoceniany kierunek na spokojny wyjazd. Ładne stare miasto, dobra kawa, ciekawe bary i dużo miejsc do chodzenia bez pośpiechu.
-        </p>
-        <p class="budget">Budżet: tani</p>
-        <div class="rating-box">
-          Opłacalność: 9/10<br>
-          Jedzenie: 7.5/10<br>
-          Klimat miasta: 8/10
-        </div>
-        <span class="read-more soon" aria-disabled="true">Plan wkrótce</span>
-      </div>
-    </article>
-
-    <article class="travel-card">
-      <img src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=900&q=80" alt="Złota kopuła soboru w Sofii na tle miasta">
-      <div class="travel-content">
-        <span class="travel-label">Bułgaria</span>
-        <h2>Sofia</h2>
-        <p>
-          Bardzo dobra opcja dla osób, które chcą zobaczyć coś mniej oczywistego. Ceny są przyjazne, kuchnia konkretna, a miasto ma ciekawy miks stylów.
-        </p>
-        <p class="budget">Budżet: tani</p>
-        <div class="rating-box">
-          Opłacalność: 9.5/10<br>
-          Jedzenie: 8/10<br>
-          Klimat miasta: 7.5/10
-        </div>
-        <span class="read-more soon" aria-disabled="true">Plan wkrótce</span>
-      </div>
-    </article>
-
-    <article class="travel-card">
-      <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&q=80" alt="Kolorowe domy nad rzeką Douro w Porto">
-      <div class="travel-content">
-        <span class="travel-label">Portugalia</span>
-        <h2>Porto</h2>
-        <p>
-          Nie zawsze najtańsze, ale bardzo opłacalne klimatem. Piękne widoki, oceaniczny vibe, dobre jedzenie i świetne miejsce na wolniejsze zwiedzanie.
-        </p>
-        <p class="budget">Budżet: średni</p>
-        <div class="rating-box">
-          Opłacalność: 8/10<br>
-          Jedzenie: 9/10<br>
-          Klimat miasta: 10/10
-        </div>
-        <span class="read-more soon" aria-disabled="true">Plan wkrótce</span>
-      </div>
-    </article>
-
   </main>
+
+  <section class="soon-strip" aria-label="Kierunki w przygotowaniu">
+    <h2>W przygotowaniu</h2>
+    <p>Pełne plany tych kierunków dopiero opisujemy — na razie krótka zapowiedź, czego się spodziewać:</p>
+    <ul class="soon-list">
+      <li><strong>Praga (Czechy)</strong> — klasyk na krótki wyjazd: piękna, dobrze skomunikowana, dobre jedzenie bez wydawania fortuny.</li>
+      <li><strong>Wilno (Litwa)</strong> — niedoceniany, spokojny kierunek z ładnym starym miastem, dobrą kawą i ciekawymi barami.</li>
+      <li><strong>Sofia (Bułgaria)</strong> — mniej oczywista stolica: przyjazne ceny, konkretna kuchnia i ciekawy miks stylów.</li>
+      <li><strong>Porto (Portugalia)</strong> — oceaniczny klimat, widoki nad Douro i świetne jedzenie na wolniejsze zwiedzanie.</li>
+    </ul>
+  </section>
 
   <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>

@@ -6,6 +6,7 @@
   <title>Zaliczenie - Szlakiem Smaku</title>
   <meta name="description" content="Interaktywna prezentacja koncepcji redakcji Szlakiem Smaku: profil, grupa docelowa, identyfikacja, komunikacja, promocja, etyka i dostępność." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
     * {
@@ -25,21 +26,7 @@
       line-height: 1.6;
     }
 
-    /* --- dostępność --- */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #8b2f2f;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 0 10px 0;
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .skip-link:focus { left: 0; }
-    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+    /* dostępność (.skip-link, :focus-visible) — w pliku style.css */
 
     header {
       min-height: 430px;
@@ -761,14 +748,14 @@
     </p>
 
     <div class="tabs">
-      <div class="tab-buttons">
-        <button class="tab-btn active" onclick="showTab('tekst')">Tekst</button>
-        <button class="tab-btn" onclick="showTab('video')">Video</button>
-        <button class="tab-btn" onclick="showTab('grafiki')">Grafiki</button>
-        <button class="tab-btn" onclick="showTab('audio')">Audio</button>
+      <div class="tab-buttons" role="tablist" aria-label="Formy komunikacji">
+        <button class="tab-btn active" id="tab-tekst" role="tab" aria-selected="true" aria-controls="tekst" onclick="showTab('tekst', this)">Tekst</button>
+        <button class="tab-btn" id="tab-video" role="tab" aria-selected="false" aria-controls="video" onclick="showTab('video', this)">Video</button>
+        <button class="tab-btn" id="tab-grafiki" role="tab" aria-selected="false" aria-controls="grafiki" onclick="showTab('grafiki', this)">Grafiki</button>
+        <button class="tab-btn" id="tab-audio" role="tab" aria-selected="false" aria-controls="audio" onclick="showTab('audio', this)">Audio</button>
       </div>
 
-      <div class="tab-content active" id="tekst">
+      <div class="tab-content active" id="tekst" role="tabpanel" tabindex="0" aria-labelledby="tab-tekst">
         <h3>Artykuły i wpisy blogowe</h3>
         <p>
           Podstawą portalu są artykuły: rankingi miejsc, relacje z podróży, poradniki,
@@ -776,7 +763,7 @@
         </p>
       </div>
 
-      <div class="tab-content" id="video">
+      <div class="tab-content" id="video" role="tabpanel" tabindex="0" aria-labelledby="tab-video">
         <h3>Krótkie materiały video</h3>
         <p>
           Rolki i krótkie filmy mogą pokazywać trasy, lokalne jedzenie, targi, restauracje
@@ -784,7 +771,7 @@
         </p>
       </div>
 
-      <div class="tab-content" id="grafiki">
+      <div class="tab-content" id="grafiki" role="tabpanel" tabindex="0" aria-labelledby="tab-grafiki">
         <h3>Mapy, checklisty i infografiki</h3>
         <p>
           Grafiki ułatwiają szybkie przyswajanie treści: przykładowe budżety, mapy smaków,
@@ -792,7 +779,7 @@
         </p>
       </div>
 
-      <div class="tab-content" id="audio">
+      <div class="tab-content" id="audio" role="tabpanel" tabindex="0" aria-labelledby="tab-audio">
         <h3>Podcasty i nagrania</h3>
         <p>
           Dodatkową formą mogą być krótkie odcinki audio z opowieściami o miejscach,
@@ -852,35 +839,35 @@
 
     <div class="accordion">
       <div class="accordion-item">
-        <button class="accordion-header">Rzetelność informacji <span>+</span></button>
+        <button class="accordion-header" aria-expanded="false">Rzetelność informacji <span>+</span></button>
         <div class="accordion-content">
-          <p>Sprawdzamy podstawowe informacje przed publikacją: lokalizacje, ceny, godziny otwarcia i aktualność polecanych miejsc.</p>
+          <p>Przy konkretnych miejscach podajemy adres i orientacyjne godziny otwarcia (np. w „Mapie smaków”), a informacje staramy się aktualizować. Ceny i oferty traktujemy orientacyjnie, bo szybko się zmieniają — zawsze warto je zweryfikować na miejscu.</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">Brak fałszywych opinii <span>+</span></button>
+        <button class="accordion-header" aria-expanded="false">Brak fałszywych opinii <span>+</span></button>
         <div class="accordion-content">
           <p>Nie publikujemy zmyślonych recenzji ani sztucznie pozytywnych opinii o restauracjach, hotelach czy atrakcjach.</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">Oznaczanie reklam <span>+</span></button>
+        <button class="accordion-header" aria-expanded="false">Oznaczanie reklam <span>+</span></button>
         <div class="accordion-content">
           <p>Współprace komercyjne, zaproszenia i materiały sponsorowane muszą być jasno oznaczone dla odbiorcy.</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">Szacunek do lokalnych społeczności <span>+</span></button>
+        <button class="accordion-header" aria-expanded="false">Szacunek do lokalnych społeczności <span>+</span></button>
         <div class="accordion-content">
           <p>Nie promujemy zachowań, które szkodzą mieszkańcom, kulturze, małym biznesom lub środowisku.</p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-header">Prawa autorskie <span>+</span></button>
+        <button class="accordion-header" aria-expanded="false">Prawa autorskie <span>+</span></button>
         <div class="accordion-content">
           <p>Nie kopiujemy cudzych zdjęć, tekstów ani grafik bez zgody. Korzystamy z własnych materiałów albo legalnych źródeł.</p>
         </div>
@@ -945,20 +932,21 @@
   </footer>
 
   <script>
-    function showTab(tabId) {
-      const contents = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tab-btn');
-
-      contents.forEach(content => {
+    function showTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(function (content) {
         content.classList.remove('active');
       });
 
-      buttons.forEach(button => {
+      document.querySelectorAll('.tab-btn').forEach(function (button) {
         button.classList.remove('active');
+        button.setAttribute('aria-selected', 'false');
       });
 
       document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      }
     }
 
     const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -971,9 +959,11 @@
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
           icon.textContent = '+';
+          header.setAttribute('aria-expanded', 'false');
         } else {
           content.style.maxHeight = content.scrollHeight + 'px';
           icon.textContent = '−';
+          header.setAttribute('aria-expanded', 'true');
         }
       });
     });
