@@ -20,9 +20,9 @@
     }
 
     .category-hero {
-      min-height: 420px;
+      min-height: 430px;
       background:
-        linear-gradient(rgba(43, 33, 24, 0.65), rgba(43, 33, 24, 0.65)),
+        linear-gradient(rgba(43, 33, 24, 0.68), rgba(43, 33, 24, 0.68)),
         url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
@@ -83,74 +83,73 @@
       font-size: 18px;
     }
 
-    .blog-list {
-      max-width: 1100px;
-      margin: 40px auto 70px;
+    .travel-grid {
+      max-width: 1150px;
+      margin: 45px auto 70px;
       padding: 0 20px;
       display: grid;
-      gap: 35px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
 
-    .blog-post {
-      display: grid;
-      grid-template-columns: 340px 1fr;
+    .travel-card {
       background-color: #fffaf2;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .blog-post:hover {
-      transform: translateY(-6px);
+    .travel-card:hover {
+      transform: translateY(-7px);
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .blog-post img {
+    .travel-card img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
+      height: 230px;
       object-fit: cover;
     }
 
-    .post-content {
-      padding: 30px;
+    .travel-content {
+      padding: 26px;
     }
 
-    .post-meta {
-      color: #8b2f2f;
-      font-size: 14px;
+    .travel-label {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 14px;
       font-weight: bold;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
-    .post-content h2 {
+    .travel-content h2 {
       font-family: Georgia, serif;
       color: #5d3a1a;
-      font-size: 30px;
+      font-size: 27px;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .travel-content p {
+      font-size: 16.5px;
       margin-bottom: 15px;
     }
 
-    .post-content p {
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
-
-    .tags {
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      display: inline-block;
+    .rating-box {
       background-color: #e8d7bd;
+      padding: 15px;
+      border-radius: 14px;
+      margin: 18px 0;
       color: #5d3a1a;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-right: 6px;
-      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .budget {
+      color: #8b2f2f;
       font-weight: bold;
     }
 
@@ -176,17 +175,23 @@
       padding: 30px 20px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1000px) {
+      .travel-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .travel-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-content h1 {
         font-size: 42px;
       }
 
-      .blog-post {
-        grid-template-columns: 1fr;
-      }
-
-      .blog-post img {
-        height: 240px;
+      .hero-content p {
+        font-size: 17px;
       }
     }
   </style>
@@ -197,87 +202,126 @@
   <header class="category-hero">
     <div class="hero-content">
       <h1>Podróże</h1>
-      <p>Miasta, trasy, weekendowe wypady i miejsca, które warto odwiedzić nie tylko dla widoków, ale też dla lokalnego klimatu.</p>
+      <p>Tanie kierunki na city break, weekendowy wyjazd albo krótki urlop — z oceną opłacalności, klimatu i jedzenia.</p>
       <a href="index.html" class="back-link">← Wróć na stronę główną</a>
     </div>
   </header>
 
   <section class="intro">
-    <h2>Wpisy z kategorii: Podróże</h2>
+    <h2>Tanie miejsca warte podróży</h2>
     <p>
-      W tej części bloga opisujemy ciekawe kierunki na krótkie i dłuższe wyjazdy. 
-      Skupiamy się na atmosferze miejsc, trasach spacerowych, lokalnych zwyczajach i tym, co można zobaczyć poza najbardziej oczywistymi atrakcjami.
+      W tej kategorii zbieramy kierunki, które można odwiedzić bez ogromnego budżetu. 
+      Patrzymy nie tylko na cenę noclegów i jedzenia, ale też na klimat miasta, transport, atrakcje i to, czy miejsce faktycznie daje dużo w stosunku do wydanych pieniędzy.
     </p>
   </section>
 
-  <main class="blog-list">
+  <main class="travel-grid">
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=900&q=80" alt="Klimatyczna ulica w Krakowie">
-
-      <div class="post-content">
-        <div class="post-meta">Podróże • Polska • 12 czerwca 2026</div>
-        <h2>Weekend w Krakowie szlakiem obwarzanka</h2>
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1564188183203-ec0ec9833322?auto=format&fit=crop&w=900&q=80" alt="Budapeszt">
+      <div class="travel-content">
+        <span class="travel-label">Węgry</span>
+        <h2>Budapeszt</h2>
         <p>
-          Kraków można zwiedzać klasycznie: Rynek, Wawel, Sukiennice i Kazimierz. Można jednak pójść inną drogą — przez smak, zapach świeżego pieczywa i rozmowy z ludźmi spotkanymi po drodze.
+          Świetny kierunek na tani city break. Miasto ma piękne widoki, termy, klimatyczne knajpy i dużo atrakcji, które można zobaczyć spacerując.
         </p>
-        <p>
-          W tym wpisie pokazujemy plan weekendu, w którym zabytki mieszają się z lokalnymi kawiarniami, małymi piekarniami i miejscami, gdzie turystyczny Kraków ustępuje temu bardziej prawdziwemu.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Kraków</span>
-          <span class="tag">weekend</span>
-          <span class="tag">Polska</span>
+        <p class="budget">Budżet: średnio-tani</p>
+        <div class="rating-box">
+          Opłacalność: 9/10<br>
+          Jedzenie: 8/10<br>
+          Klimat miasta: 9/10
         </div>
-
-        <a href="krakow.html" class="read-more">Czytaj więcej</a>
+        <a href="#" class="read-more">Zobacz plan wyjazdu</a>
       </div>
     </article>
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1555990538-c48dbe71e3f1?auto=format&fit=crop&w=900&q=80" alt="Budapeszt i miejski krajobraz">
-
-      <div class="post-content">
-        <div class="post-meta">Podróże • Węgry • 18 czerwca 2026</div>
-        <h2>Budapeszt od kuchni i od strony Dunaju</h2>
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Praga">
+      <div class="travel-content">
+        <span class="travel-label">Czechy</span>
+        <h2>Praga</h2>
         <p>
-          Budapeszt to miasto, które najlepiej poznaje się powoli. Z jednej strony monumentalne mosty, wzgórze zamkowe i widok na Dunaj, z drugiej bary, targi i kuchnia pełna papryki.
+          Klasyk na krótki wyjazd. Praga jest piękna, dobrze skomunikowana i pełna miejsc, w których można zjeść dobrze bez wydawania fortuny.
         </p>
-        <p>
-          Proponujemy trasę, która łączy spacer po najważniejszych punktach miasta z kulinarnymi przystankami: od langosza, przez gulasz, aż po wieczorne kawiarnie.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Budapeszt</span>
-          <span class="tag">city break</span>
-          <span class="tag">Węgry</span>
+        <p class="budget">Budżet: średni</p>
+        <div class="rating-box">
+          Opłacalność: 8/10<br>
+          Jedzenie: 8/10<br>
+          Klimat miasta: 10/10
         </div>
-
-        <a href="budapeszt.html" class="read-more">Czytaj więcej</a>
+        <a href="#" class="read-more">Zobacz plan wyjazdu</a>
       </div>
     </article>
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Plaża i krajobraz podróżniczy">
-
-      <div class="post-content">
-        <div class="post-meta">Podróże • Poradnik • 24 czerwca 2026</div>
-        <h2>Jak zaplanować tani weekendowy wyjazd?</h2>
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1555990538-c48dbe71e3f1?auto=format&fit=crop&w=900&q=80" alt="Kraków">
+      <div class="travel-content">
+        <span class="travel-label">Polska</span>
+        <h2>Kraków</h2>
         <p>
-          Dobry wyjazd nie musi oznaczać dużego budżetu. Czasem wystarczy dobra organizacja, elastyczność i wybór miejsc, które nie są oczywiste dla większości turystów.
+          Dobry wybór na weekend bez lotu i większej logistyki. Kazimierz, Stare Miasto, kawiarnie i tanie jedzenie robią robotę.
         </p>
-        <p>
-          W artykule pokazujemy, jak wybrać kierunek, kiedy rezerwować nocleg, jak ograniczyć koszty jedzenia i jak ułożyć plan, żeby nie stracić czasu na przypadkowe decyzje.
-        </p>
-
-        <div class="tags">
-          <span class="tag">tanie podróże</span>
-          <span class="tag">planowanie</span>
-          <span class="tag">weekend</span>
+        <p class="budget">Budżet: tani/średni</p>
+        <div class="rating-box">
+          Opłacalność: 8.5/10<br>
+          Jedzenie: 9/10<br>
+          Klimat miasta: 9/10
         </div>
+        <a href="krakow.html" class="read-more">Zobacz plan wyjazdu</a>
+      </div>
+    </article>
 
-        <a href="tanie-podroze.html" class="read-more">Czytaj więcej</a>
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1605551621786-00c425b1707f?auto=format&fit=crop&w=900&q=80" alt="Wilno">
+      <div class="travel-content">
+        <span class="travel-label">Litwa</span>
+        <h2>Wilno</h2>
+        <p>
+          Niedoceniany kierunek na spokojny wyjazd. Ładne stare miasto, dobra kawa, ciekawe bary i dużo miejsc do chodzenia bez pośpiechu.
+        </p>
+        <p class="budget">Budżet: tani</p>
+        <div class="rating-box">
+          Opłacalność: 9/10<br>
+          Jedzenie: 7.5/10<br>
+          Klimat miasta: 8/10
+        </div>
+        <a href="#" class="read-more">Zobacz plan wyjazdu</a>
+      </div>
+    </article>
+
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=900&q=80" alt="Sofia">
+      <div class="travel-content">
+        <span class="travel-label">Bułgaria</span>
+        <h2>Sofia</h2>
+        <p>
+          Bardzo dobra opcja dla osób, które chcą zobaczyć coś mniej oczywistego. Ceny są przyjazne, kuchnia konkretna, a miasto ma ciekawy miks stylów.
+        </p>
+        <p class="budget">Budżet: tani</p>
+        <div class="rating-box">
+          Opłacalność: 9.5/10<br>
+          Jedzenie: 8/10<br>
+          Klimat miasta: 7.5/10
+        </div>
+        <a href="#" class="read-more">Zobacz plan wyjazdu</a>
+      </div>
+    </article>
+
+    <article class="travel-card">
+      <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&q=80" alt="Porto">
+      <div class="travel-content">
+        <span class="travel-label">Portugalia</span>
+        <h2>Porto</h2>
+        <p>
+          Nie zawsze najtańsze, ale bardzo opłacalne klimatem. Piękne widoki, oceaniczny vibe, dobre jedzenie i świetne miejsce na wolniejsze zwiedzanie.
+        </p>
+        <p class="budget">Budżet: średni</p>
+        <div class="rating-box">
+          Opłacalność: 8/10<br>
+          Jedzenie: 9/10<br>
+          Klimat miasta: 10/10
+        </div>
+        <a href="#" class="read-more">Zobacz plan wyjazdu</a>
       </div>
     </article>
 
@@ -285,7 +329,7 @@
 
   <footer>
     <p><strong>Szlakiem Smaku</strong></p>
-    <p>Blog podróżniczo-kulinarny tworzony w ramach projektu studenckiego.</p>
+    <p>Tanie podróże, dobre jedzenie i miejsca warte zapamiętania.</p>
   </footer>
 
 </body>
