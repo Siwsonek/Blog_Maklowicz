@@ -52,14 +52,28 @@
       background-position: center;
       color: white;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 40px 20px;
+      padding: 25px 20px 40px;
     }
+
+    .cat-nav {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .cat-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .cat-nav a:hover { color: #e5b45b; }
 
     .hero-content {
       max-width: 850px;
+      margin: auto;
     }
 
     .hero-content h1 {
@@ -209,6 +223,15 @@
   <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="category-hero">
+    <nav class="cat-nav" aria-label="Menu główne">
+      <a href="index.html">Strona główna</a>
+      <a href="index.html#wpisy">Wpisy</a>
+      <a href="index.html#ludzie">Ludzie</a>
+      <a href="index.html#kategorie">Kategorie</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="zaliczenie.html">Zaliczenie</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
     <div class="hero-content">
       <h1>Mapa smaków</h1>
       <p>Subiektywny przewodnik po miejscach, w których warto zatrzymać się na coś dobrego — od targów i kawiarni po małe lokale z charakterem.</p>
@@ -219,8 +242,9 @@
   <section class="intro" id="main" tabindex="-1">
     <h2>Nasze kulinarne punkty na mapie</h2>
     <p>
-      Tutaj nie tworzymy zwykłego katalogu restauracji. Zbieramy miejsca, które mają klimat, smak i historię.
-      Czasem będzie to znana miejscówka w centrum miasta, a czasem mały bar, który łatwo ominąć, ale trudno zapomnieć.
+      To nie jest zwykły katalog restauracji. Zbieramy miejsca, które mają coś więcej niż menu — klimat,
+      smak i historię. Czasem będzie to znana miejscówka w sercu miasta, a czasem mały bar, który łatwo
+      minąć, ale którego potem nie sposób zapomnieć.
     </p>
   </section>
 
@@ -292,9 +316,10 @@
 
   </main>
 
-  <footer>
+  <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>
     <p>Mapa smaków tworzona z miejsc, do których naprawdę chce się wracać.</p>
+    <p>Kontakt: <a href="mailto:kontakt@szlakiemsmaku.pl" style="color:#e5b45b">kontakt@szlakiemsmaku.pl</a></p>
   </footer>
 
 </body>

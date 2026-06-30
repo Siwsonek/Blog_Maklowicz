@@ -52,14 +52,28 @@
       background-position: center;
       color: white;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 40px 20px;
+      padding: 25px 20px 40px;
     }
+
+    .cat-nav {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .cat-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .cat-nav a:hover { color: #e5b45b; }
 
     .hero-content {
       max-width: 850px;
+      margin: auto;
     }
 
     .hero-content h1 {
@@ -206,6 +220,15 @@
   <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="category-hero">
+    <nav class="cat-nav" aria-label="Menu główne">
+      <a href="index.html">Strona główna</a>
+      <a href="index.html#wpisy">Wpisy</a>
+      <a href="index.html#ludzie">Ludzie</a>
+      <a href="index.html#kategorie">Kategorie</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="zaliczenie.html">Zaliczenie</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
     <div class="hero-content">
       <h1>Poradniki</h1>
       <p>Praktyczne teksty dla osób, które chcą podróżować rozsądniej: taniej, wygodniej i z lepszym planem na jedzenie po drodze.</p>
@@ -216,8 +239,9 @@
   <section class="intro" id="main" tabindex="-1">
     <h2>Praktyczne wskazówki przed podróżą</h2>
     <p>
-      W tej sekcji zbieramy konkretne porady: jak planować trasę, gdzie szukać taniego jedzenia,
-      jak nie przepłacać w turystycznych miejscach i jak ułożyć wyjazd tak, żeby był przyjemny, a nie chaotyczny.
+      Zero ogólników — same konkretne porady: jak ułożyć trasę, gdzie szukać taniego i dobrego jedzenia,
+      jak nie przepłacać w turystycznych pułapkach i jak zaplanować wyjazd tak, żeby był przyjemnością,
+      a nie wyścigiem z czasem.
     </p>
   </section>
 
@@ -294,9 +318,10 @@
 
   </main>
 
-  <footer>
+  <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>
     <p>Poradniki tworzone dla tych, którzy chcą podróżować mądrzej, a nie drożej.</p>
+    <p>Kontakt: <a href="mailto:kontakt@szlakiemsmaku.pl" style="color:#e5b45b">kontakt@szlakiemsmaku.pl</a></p>
   </footer>
 
 </body>

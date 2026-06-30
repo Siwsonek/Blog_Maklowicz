@@ -52,14 +52,28 @@
       background-position: center;
       color: white;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 40px 20px;
+      padding: 25px 20px 40px;
     }
+
+    .cat-nav {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .cat-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .cat-nav a:hover { color: #e5b45b; }
 
     .hero-content {
       max-width: 850px;
+      margin: auto;
     }
 
     .hero-content h1 {
@@ -225,6 +239,15 @@
   <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="category-hero">
+    <nav class="cat-nav" aria-label="Menu główne">
+      <a href="index.html">Strona główna</a>
+      <a href="index.html#wpisy">Wpisy</a>
+      <a href="index.html#ludzie">Ludzie</a>
+      <a href="index.html#kategorie">Kategorie</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="zaliczenie.html">Zaliczenie</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
     <div class="hero-content">
       <h1>Podróże</h1>
       <p>Tanie kierunki na city break, weekendowy wyjazd albo krótki urlop — z oceną opłacalności, klimatu i jedzenia.</p>
@@ -235,8 +258,9 @@
   <section class="intro" id="main" tabindex="-1">
     <h2>Tanie miejsca warte podróży</h2>
     <p>
-      W tej kategorii zbieramy kierunki, które można odwiedzić bez ogromnego budżetu. 
-      Patrzymy nie tylko na cenę noclegów i jedzenia, ale też na klimat miasta, transport, atrakcje i to, czy miejsce faktycznie daje dużo w stosunku do wydanych pieniędzy.
+      Zbieramy tu kierunki, na które stać prawie każdego — bez nadrabiania kartą kredytową. Patrzymy nie
+      tylko na ceny noclegów i jedzenia, ale też na klimat miasta, dojazd i atrakcje, czyli na to, czy
+      miejsce naprawdę daje dużo w zamian za wydane pieniądze.
     </p>
   </section>
 
@@ -352,9 +376,10 @@
 
   </main>
 
-  <footer>
+  <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>
     <p>Tanie podróże, dobre jedzenie i miejsca warte zapamiętania.</p>
+    <p>Kontakt: <a href="mailto:kontakt@szlakiemsmaku.pl" style="color:#e5b45b">kontakt@szlakiemsmaku.pl</a></p>
   </footer>
 
 </body>

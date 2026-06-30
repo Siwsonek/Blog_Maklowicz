@@ -126,6 +126,52 @@
       font-size: 18px;
     }
 
+    .team-title {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 26px;
+      margin-top: 45px;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 950px;
+      margin: 28px auto 0;
+    }
+    .team-card {
+      background: #fffaf2;
+      border: 1px solid #ecdfc8;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    }
+    .team-card .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #8b2f2f;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 auto 12px;
+      letter-spacing: 1px;
+    }
+    .team-card h3 {
+      color: #5d3a1a;
+      font-family: Georgia, serif;
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+    .team-card p { font-size: 14.5px; margin: 0; }
+    @media (max-width: 700px) {
+      .team { grid-template-columns: 1fr; }
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -180,17 +226,6 @@
       background-color: #e8d7bd;
     }
 
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-
-    .categories {
-  background-color: #e8d7bd;
-}
-
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -227,15 +262,6 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
-    .category-card p {
-      color: #2b2118;
-    }
-
-    .category-card:hover {
-      transform: scale(1.07);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
-    }
-
     .ethics {
       background-color: #fffaf2;
     }
@@ -255,6 +281,64 @@
 
     .ethics-box li {
       margin-bottom: 10px;
+    }
+
+    /* --- aktualności (wzmianki) --- */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .news-item {
+      background: #fffaf2;
+      border-left: 5px solid #8b2f2f;
+      border-radius: 0 12px 12px 0;
+      padding: 20px 22px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    }
+    .news-item .date {
+      font-size: 13px;
+      color: #8b2f2f;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .news-item h3 {
+      margin: 6px 0 8px;
+      color: #5d3a1a;
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+    .news-item p { font-size: 15px; }
+    .news-item a { color: #8b2f2f; font-weight: bold; text-decoration: none; }
+    .news-item a:hover { text-decoration: underline; }
+
+    /* --- ludzie smaku (główki) --- */
+    .glowka-tag {
+      display: inline-block;
+      background: #e8d7bd;
+      color: #5d3a1a;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .see-also {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      text-align: center;
+      font-weight: bold;
+    }
+    .see-also a { color: #8b2f2f; text-decoration: none; margin: 0 10px; }
+    .see-also a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .news-grid { grid-template-columns: 1fr; }
     }
 
     footer {
@@ -309,9 +393,10 @@
     <nav aria-label="Menu główne">
       <a href="#start">Start</a>
       <a href="#o-nas">O blogu</a>
+      <a href="#aktualnosci">Aktualności</a>
       <a href="#wpisy">Wpisy</a>
+      <a href="#ludzie">Ludzie</a>
       <a href="#kategorie">Kategorie</a>
-      <a href="#etyka">Zasady</a>
       <a href="multimedia.html">Multimedia</a>
       <a href="zaliczenie.html">Zaliczenie</a>
       <a href="#kontakt">Kontakt</a>
@@ -346,6 +431,58 @@
       małe restauracje, tradycyjne potrawy i historie ludzi, którzy tworzą klimat danego miejsca.
       Naszym celem jest zachęcanie do odkrywania Polski i Europy od bardziej smakowitej strony.
     </p>
+
+    <h3 class="team-title">Zespół redakcyjny</h3>
+    <div class="team">
+      <div class="team-card">
+        <div class="avatar">MP</div>
+        <h3>Magda Prędki</h3>
+        <p>Redaktorka prowadząca. Pisze reportaże i sylwetki — od krakowskich uliczek po cykl „Ludzie smaku”.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">KB</div>
+        <h3>Kacper Bielawski</h3>
+        <p>Korespondent i recenzent. Najlepiej czuje się znad talerza w obcym mieście, z notesem pod ręką.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">MZ</div>
+        <h3>Martyna Zach</h3>
+        <p>Reporterka rozmów i poradników. Wierzy, że najlepsze adresy zdobywa się jednym dobrym pytaniem.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" id="aktualnosci">
+    <h2 class="section-title">Aktualności</h2>
+
+    <div class="news-grid">
+      <div class="news-item">
+        <span class="date">30 czerwca 2026</span>
+        <h3>Ruszył podcast „Szlakiem Smaku”</h3>
+        <p>
+          W dziale Multimedia udostępniliśmy pierwszy odcinek podcastu wraz z pełną transkrypcją.
+          <a href="multimedia.html">Posłuchaj →</a>
+        </p>
+      </div>
+
+      <div class="news-item">
+        <span class="date">20 maja 2026</span>
+        <h3>Nowa sylwetka w dziale „Ludzie smaku”</h3>
+        <p>
+          Opublikowaliśmy sylwetkę Roberta Makłowicza — patrona naszej kulinarnej inspiracji.
+          <a href="sylwetka-maklowicz.html">Czytaj →</a>
+        </p>
+      </div>
+
+      <div class="news-item">
+        <span class="date">Zapowiedź</span>
+        <h3>Majówka 2026: zestawienie tanich kierunków</h3>
+        <p>
+          Przed długim weekendem przygotowujemy ranking budżetowych miast na krótki wyjazd.
+          <a href="podroze.html">Zobacz podróże →</a>
+        </p>
+      </div>
+    </div>
   </section>
 
   <section id="wpisy">
@@ -392,28 +529,76 @@
     </div>
   </section>
 
+  <section id="ludzie">
+    <h2 class="section-title">Ludzie smaku</h2>
+    <p style="text-align:center;max-width:760px;margin:0 auto 30px;font-size:17px;">
+      Smak tworzą ludzie. W tym dziale w kilku zdaniach przedstawiamy postacie, dla których jedzenie
+      jest sposobem na opowiadanie świata.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-content">
+          <span class="glowka-tag">Główka</span>
+          <h3>Dawid Podsiadło</h3>
+          <p>
+            Od hotelowego basenu w Tunezji, gdzie 12-letni Dawid zaśpiewał Myslovitz, po praski bar dla
+            trzydziestu osób — to podróże ulepiły najpopularniejszego polskiego muzyka. Dziś mieszka
+            w Pradze i studiuje reżyserię, szukając resetu z dala od stadionowej sławy.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-content">
+          <span class="glowka-tag">Główka</span>
+          <h3>Robert Makłowicz</h3>
+          <p>
+            Krakowski historyk bez kucharskiego dyplomu, który pokazał Polakom smak ponad pięćdziesięciu
+            krajów. Gotował pod trzynastowiecznym mostem w Armenii, a naukowcy nazwali jego imieniem
+            niesporczaka <em>Mesobiotus maklowiczi</em>.
+          </p>
+          <a href="sylwetka-maklowicz.html" class="small-btn">Czytaj pełną sylwetkę →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-content">
+          <span class="glowka-tag">Więcej z działu</span>
+          <h3>Rozmowy i recenzje</h3>
+          <p>
+            Zaglądaj do naszych dłuższych form: wywiadu z lokalnym restauratorem oraz recenzji programu
+            „Makłowicz w podróży”.
+          </p>
+          <a href="wywiad.html" class="small-btn">Wywiad →</a><br>
+          <a href="recenzja.html" class="small-btn">Recenzja →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
  <section class="categories" id="kategorie">
   <h2 class="section-title">Kategorie</h2>
 
   <div class="category-grid">
     <a href="podroze.html" class="category-card">
       <h3>Podróże</h3>
-      <p>Miasta, trasy, weekendowe wypady i miejsca warte odwiedzenia.</p>
+      <p>Miasta, trasy i weekendowe wypady — kierunki, do których naprawdę chce się wracać.</p>
     </a>
 
     <a href="kuchnia.html" class="category-card">
       <h3>Kuchnia</h3>
-      <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki.</p>
+      <p>Lokalne potrawy, knajpy i targi — czyli to, co miasto je naprawdę, a nie na pokaz.</p>
     </a>
 
     <a href="mapa-smakow.html" class="category-card">
       <h3>Mapa smaków</h3>
-      <p>Subiektywna mapa miejsc, w których warto coś zjeść.</p>
+      <p>Nasza subiektywna mapa miejsc, w których warto zatrzymać się na coś dobrego.</p>
     </a>
 
     <a href="poradniki.html" class="category-card">
       <h3>Poradniki</h3>
-      <p>Jak planować wyjazdy, oszczędzać i odkrywać mniej oczywiste miejsca.</p>
+      <p>Jak planować wyjazd, nie przepłacać i odkrywać miejsca, których nie zna przewodnik.</p>
     </a>
   </div>
 </section>
@@ -439,7 +624,7 @@
   <footer id="kontakt">
     <p><strong>Szlakiem Smaku</strong></p>
     <p>Blog podróżniczo-kulinarny tworzony w ramach projektu studenckiego.</p>
-    <p>Kontakt: kontakt@szlakiemsmaku.pl</p>
+    <p>Kontakt: <a href="mailto:kontakt@szlakiemsmaku.pl" style="color:#e5b45b">kontakt@szlakiemsmaku.pl</a></p>
   </footer>
 
 </body>
