@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Poradniki - Szlakiem Smaku</title>
+  <meta name="description" content="Praktyczne poradniki o tańszym i wygodniejszym podróżowaniu oraz lepszym planowaniu jedzenia po drodze." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <style>
     * {
@@ -18,6 +20,28 @@
       color: #2b2118;
       line-height: 1.6;
     }
+
+    /* --- dostępność --- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #8b2f2f;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 0 10px 0;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .skip-link:focus { left: 0; }
+    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+
+    .read-more.soon {
+      background-color: #b9a88c;
+      cursor: default;
+    }
+    .read-more.soon:hover { background-color: #b9a88c; }
 
     .category-hero {
       min-height: 420px;
@@ -179,6 +203,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="category-hero">
     <div class="hero-content">
@@ -188,7 +213,7 @@
     </div>
   </header>
 
-  <section class="intro">
+  <section class="intro" id="main" tabindex="-1">
     <h2>Praktyczne wskazówki przed podróżą</h2>
     <p>
       W tej sekcji zbieramy konkretne porady: jak planować trasę, gdzie szukać taniego jedzenia,
@@ -235,7 +260,7 @@
           <li>nie zmieniaj dzielnic co 30 minut.</li>
         </ul>
 
-        <a href="#" class="read-more">Czytaj poradnik</a>
+        <span class="read-more soon" aria-disabled="true">Wkrótce</span>
       </div>
 
       <div class="guide-box">
@@ -258,7 +283,7 @@
           <li>lista miejsc offline przydaje się, gdy internet zawodzi.</li>
         </ul>
 
-        <a href="#" class="read-more">Czytaj poradnik</a>
+        <span class="read-more soon" aria-disabled="true">Wkrótce</span>
       </div>
 
       <div class="guide-box">

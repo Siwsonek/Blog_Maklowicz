@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zaliczenie - Szlakiem Smaku</title>
+  <meta name="description" content="Interaktywna prezentacja koncepcji redakcji Szlakiem Smaku: profil, grupa docelowa, identyfikacja, komunikacja, promocja, etyka i dostępność." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <style>
     * {
@@ -22,6 +24,22 @@
       color: #2b2118;
       line-height: 1.6;
     }
+
+    /* --- dostępność --- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #8b2f2f;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 0 10px 0;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .skip-link:focus { left: 0; }
+    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
 
     header {
       min-height: 430px;
@@ -589,10 +607,12 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#profil">Przejdź do treści</a>
 
   <header>
-    <nav>
+    <nav aria-label="Sekcje prezentacji">
       <a href="index.html">Strona główna</a>
+      <a href="multimedia.html">Multimedia</a>
       <a href="#profil">Profil</a>
       <a href="#grupa">Grupa docelowa</a>
       <a href="#identyfikacja">Identyfikacja</a>

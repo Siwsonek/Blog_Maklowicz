@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Szlakiem Smaku - blog podróżniczo-kulinarny</title>
+  <meta name="description" content="Szlakiem Smaku — blog podróżniczo-kulinarny o miejscach, które najlepiej poznaje się przez lokalne jedzenie, historię i rozmowy z ludźmi." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <style>
     * {
@@ -18,6 +20,32 @@
       color: #2b2118;
       line-height: 1.6;
     }
+
+    /* --- dostępność --- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #8b2f2f;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 0 10px 0;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .skip-link:focus { left: 0; }
+    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+    .brand-lockup svg { flex: 0 0 auto; }
+    .brand-lockup h1 { margin-bottom: 0; }
 
     header {
       background: linear-gradient(rgba(43, 33, 24, 0.65), rgba(43, 33, 24, 0.65)),
@@ -275,20 +303,36 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#wpisy">Przejdź do treści</a>
 
   <header>
-    <nav>
+    <nav aria-label="Menu główne">
       <a href="#start">Start</a>
       <a href="#o-nas">O blogu</a>
       <a href="#wpisy">Wpisy</a>
       <a href="#kategorie">Kategorie</a>
       <a href="#etyka">Zasady</a>
+      <a href="multimedia.html">Multimedia</a>
       <a href="zaliczenie.html">Zaliczenie</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
 
     <div class="hero" id="start">
-      <h1>Szlakiem Smaku</h1>
+      <div class="brand-lockup">
+        <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#8b2f2f"/>
+          <path d="M32 12c-7.2 0-13 5.6-13 12.5 0 8.9 13 23.5 13 23.5s13-14.6 13-23.5C45 17.6 39.2 12 32 12z" fill="#f7efe3"/>
+          <g fill="#8b2f2f">
+            <rect x="26.4" y="18.5" width="1.8" height="7" rx="0.9"/>
+            <rect x="29.4" y="18.5" width="1.8" height="7" rx="0.9"/>
+            <rect x="32.4" y="18.5" width="1.8" height="7" rx="0.9"/>
+            <rect x="35.4" y="18.5" width="1.8" height="7" rx="0.9"/>
+            <rect x="29.6" y="24.5" width="4.8" height="2.2" rx="1.1"/>
+            <rect x="31" y="25.5" width="2" height="11" rx="1"/>
+          </g>
+        </svg>
+        <h1>Szlakiem Smaku</h1>
+      </div>
       <p>Blog podróżniczo-kulinarny o miejscach, które najlepiej poznaje się przez lokalne jedzenie, historię i rozmowy z ludźmi.</p>
       <a href="#wpisy" class="btn">Zobacz najnowsze wpisy</a>
     </div>
@@ -322,7 +366,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=80" alt="Jedzenie na talerzu">
+        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=80" alt="Aromatyczne danie z papryką podane na talerzu — kuchnia węgierska">
         <div class="card-content">
           <h3>Budapeszt od kuchni</h3>
           <p>
@@ -334,7 +378,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Podróż i krajobraz">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Pusta plaża nad morzem o zachodzie słońca — symbol taniej, spokojnej podróży">
         <div class="card-content">
           <h3>Jak podróżować tanio, ale jeść dobrze?</h3>
           <p>

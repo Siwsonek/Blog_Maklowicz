@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jak podróżować tanio, ale jeść dobrze?</title>
+  <meta name="description" content="Jak podróżować tanio, ale jeść dobrze — praktyczny poradnik o lokalnych targach, barach i planowaniu trasy." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <style>
     body {
@@ -13,6 +15,22 @@
       color: #2b2118;
       line-height: 1.7;
     }
+
+    /* --- dostępność --- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #8b2f2f;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 0 10px 0;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .skip-link:focus { left: 0; }
+    :focus-visible { outline: 3px solid #e5b45b; outline-offset: 2px; }
 
     header {
       background-color: #2b2118;
@@ -48,7 +66,7 @@
     }
 
     .meta {
-      color: #6f6254;
+      color: #5d4f3f;
       margin-bottom: 25px;
     }
 
@@ -84,17 +102,19 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header>
-    <nav>
+    <nav aria-label="Menu główne">
       <a href="index.html">Strona główna</a>
       <a href="index.html#wpisy">Wpisy</a>
       <a href="index.html#kategorie">Kategorie</a>
+      <a href="multimedia.html">Multimedia</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
   </header>
 
-  <article>
+  <article id="main" tabindex="-1">
     <h1>Jak podróżować tanio, ale jeść dobrze?</h1>
     <p class="meta">Autor: Redakcja Szlakiem Smaku | Kategoria: Poradniki</p>
 
