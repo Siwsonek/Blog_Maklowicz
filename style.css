@@ -4,6 +4,9 @@
    Style specyficzne dla układu danej strony pozostają w jej <style>.
    =========================================================== */
 
+/* nowoczesne czcionki — nagłówki: Playfair Display, treść: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap');
+
 :root {
   /* kolory */
   --cream: #f7efe3;
@@ -16,6 +19,15 @@
   --sand: #e8d7bd;
   --muted: #5d4f3f;
 
+  /* czcionki */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, Arial, sans-serif;
+
+  /* gradienty marki */
+  --grad-brick: linear-gradient(135deg, #8b2f2f 0%, #642020 100%);
+  --grad-gold: linear-gradient(135deg, #e5b45b 0%, #c98a2e 100%);
+  --grad-warm: linear-gradient(120deg, #8b2f2f 0%, #b65c2e 45%, #e5b45b 100%);
+
   /* promienie */
   --radius-sm: 12px;
   --radius: 18px;
@@ -26,12 +38,37 @@
   --shadow-sm: 0 5px 12px rgba(0, 0, 0, 0.08);
   --shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.18);
+  --shadow-xl: 0 22px 48px rgba(43, 33, 24, 0.22);
 
   /* odstępy */
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 18px;
   --space-lg: 28px;
+
+  /* ruch */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 0.45s;
+}
+
+/* ===========================================================
+   Typografia globalna
+   !important — świadomie pokonuje inline font-family na podstronach
+   (Arial/Georgia), bez edycji każdej z 13 stron.
+   =========================================================== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body) !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3,
+.section-title, .hero h1, .team-title, .card-content h3 {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.01em;
 }
 
 /* --- dostępność --- */
@@ -52,6 +89,7 @@
 
 /* szanuj ustawienie systemowe „ogranicz ruch” */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
   *,
   *::before,
   *::after {
@@ -59,6 +97,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  /* reveal-elementy zawsze widoczne, gdy ruch ograniczony */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -122,3 +165,210 @@ header.sticky-bar {
   top: 0;
   z-index: 1000;
 }
+
+/* ===========================================================
+   WARSTWA NOWOCZESNA — animacje, glass-nav, reveal, mikro-interakcje
+   (działa na wszystkich podstronach; ruch wyciszany przez
+    prefers-reduced-motion powyżej)
+   =========================================================== */
+
+/* --- keyframes --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 180, 91, 0.45); }
+  70%      { box-shadow: 0 0 0 10px rgba(229, 180, 91, 0); }
+}
+
+/* --- pasek postępu czytania (wstrzykiwany przez script.js) --- */
+#reading-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 4px;
+  z-index: 2000;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--grad-warm);
+  background-size: 200% 100%;
+  animation: gradientShift 6s ease infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* --- scroll-reveal (stan początkowy tylko gdy JS aktywny) --- */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===========================================================
+   Glassmorphism nawigacji (oba warianty: header oraz header.sticky-bar)
+   =========================================================== */
+/* tylko pasek artykułów jest przyklejony (header-hero strony głównej zostaje) */
+header.sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(43, 33, 24, 0.72);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  backdrop-filter: saturate(140%) blur(12px);
+  transition: box-shadow 0.35s var(--ease), background-color 0.35s var(--ease),
+              backdrop-filter 0.35s var(--ease), padding 0.35s var(--ease);
+}
+header.sticky-bar.scrolled {
+  background-color: rgba(43, 33, 24, 0.9);
+  box-shadow: var(--shadow);
+}
+
+/* animowane podkreślenia linków nawigacji */
+nav a {
+  position: relative;
+  transition: color 0.25s var(--ease);
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s var(--ease);
+}
+nav a:hover::after,
+nav a:focus-visible::after,
+nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* ===========================================================
+   Mikro-interakcje hover (ulepszają istniejące komponenty)
+   =========================================================== */
+.card,
+.category-card,
+.team-card,
+.news-item {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  will-change: transform;
+}
+.card:hover,
+.team-card:hover,
+.news-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+.category-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: var(--shadow-xl);
+}
+
+/* zoom obrazka w kartach z kadrem */
+.card { overflow: hidden; }
+.card img { transition: transform 0.6s var(--ease); }
+.card:hover img { transform: scale(1.06); }
+
+/* przyciski — płynny lift + połysk */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+              background-color 0.3s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s var(--ease);
+}
+.btn:hover::before { left: 140%; }
+
+.small-btn {
+  background-image: linear-gradient(var(--brick), var(--brick));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s var(--ease);
+}
+.small-btn:hover {
+  background-size: 100% 2px;
+  text-decoration: none;
+}
+
+/* ===========================================================
+   Akcenty artykułów
+   =========================================================== */
+.genre-badge {
+  background-image: var(--grad-brick);
+  animation: pulseGlow 3.2s ease-in-out infinite;
+}
+
+.lead {
+  border-left: 0;
+  position: relative;
+  padding-left: 26px;
+}
+.lead::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 5px;
+  background: var(--grad-warm);
+}
+
+/* dekoracyjne podkreślenie nagłówków artykułu — „rysuje się” przy reveal */
+article#main h2 {
+  position: relative;
+  padding-bottom: 10px;
+}
+article#main h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--grad-gold);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease) 0.15s;
+}
+html.js article#main h2[data-reveal].is-visible::after { transform: scaleX(1); }
+/* gdy JS nieaktywny / reduced-motion — podkreślenie widoczne */
+html:not(.js) article#main h2::after { transform: scaleX(1); }
