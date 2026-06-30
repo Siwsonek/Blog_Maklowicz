@@ -2,30 +2,277 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Poradniki - Smaki Świata</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poradniki - Szlakiem Smaku</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7efe3;
+      color: #2b2118;
+      line-height: 1.6;
+    }
+
+    .category-hero {
+      min-height: 420px;
+      background:
+        linear-gradient(rgba(43, 33, 24, 0.7), rgba(43, 33, 24, 0.7)),
+        url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, serif;
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: white;
+      color: #5d3a1a;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 60px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      color: #5d3a1a;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 18px;
+    }
+
+    .guides {
+      max-width: 1100px;
+      margin: 45px auto 70px;
+      padding: 0 20px;
+      display: grid;
+      gap: 30px;
+    }
+
+    .guide-card {
+      background-color: #fffaf2;
+      border-radius: 22px;
+      padding: 35px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 30px;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .guide-content h2 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .guide-content p {
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .guide-list {
+      margin: 18px 0 22px;
+      padding-left: 20px;
+    }
+
+    .guide-list li {
+      margin-bottom: 8px;
+    }
+
+    .guide-box {
+      background-color: #e8d7bd;
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+      color: #5d3a1a;
+      font-weight: bold;
+    }
+
+    .guide-box span {
+      display: block;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background-color: #642020;
+    }
+
+    footer {
+      background-color: #2b2118;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .guide-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="subpage-header">
-    <h1>Poradniki</h1>
-    <p>Jak planować wyjazdy, oszczędzać i odkrywać mniej oczywiste miejsca.</p>
-    <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+  <header class="category-hero">
+    <div class="hero-content">
+      <h1>Poradniki</h1>
+      <p>Praktyczne teksty dla osób, które chcą podróżować rozsądniej: taniej, wygodniej i z lepszym planem na jedzenie po drodze.</p>
+      <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+    </div>
   </header>
 
-  <main class="blog-list">
-    <article class="blog-post">
-      <h2>Jak tanio zaplanować weekendowy wyjazd?</h2>
-      <p>Praktyczne sposoby na tani nocleg, transport i jedzenie w podróży.</p>
-      <a href="#">Czytaj więcej</a>
+  <section class="intro">
+    <h2>Praktyczne wskazówki przed podróżą</h2>
+    <p>
+      W tej sekcji zbieramy konkretne porady: jak planować trasę, gdzie szukać taniego jedzenia,
+      jak nie przepłacać w turystycznych miejscach i jak ułożyć wyjazd tak, żeby był przyjemny, a nie chaotyczny.
+    </p>
+  </section>
+
+  <main class="guides">
+
+    <article class="guide-card">
+      <div class="guide-content">
+        <h2>Jak podróżować tanio, ale jeść dobrze?</h2>
+        <p>
+          Tani wyjazd nie musi oznaczać przypadkowego jedzenia ze stacji benzynowej. Najważniejsze jest wcześniejsze sprawdzenie lokalnych targów, barów mlecznych, food halli i miejsc popularnych wśród mieszkańców.
+        </p>
+
+        <ul class="guide-list">
+          <li>sprawdzaj menu przed wejściem do restauracji,</li>
+          <li>unikaj lokali bezpośrednio przy największych atrakcjach,</li>
+          <li>szukaj miejsc, w których jedzą lokalni mieszkańcy,</li>
+          <li>zostaw budżet na jedną lepszą kolację zamiast kilku przypadkowych posiłków.</li>
+        </ul>
+
+        <a href="tanie-podroze.html" class="read-more">Czytaj poradnik</a>
+      </div>
+
+      <div class="guide-box">
+        <span>01</span>
+        Tanie jedzenie w podróży
+      </div>
     </article>
 
-    <article class="blog-post">
-      <h2>Co zabrać na krótki trip?</h2>
-      <p>Lista rzeczy, które naprawdę się przydają, bez pakowania połowy mieszkania.</p>
-      <a href="#">Czytaj więcej</a>
+    <article class="guide-card">
+      <div class="guide-content">
+        <h2>Jak ułożyć plan na weekendowy city break?</h2>
+        <p>
+          Największy błąd przy krótkim wyjeździe to próba zobaczenia wszystkiego. Lepiej wybrać kilka punktów, zostawić czas na spacer i dopisać miejsca jedzeniowe jako naturalne przerwy w trasie.
+        </p>
+
+        <ul class="guide-list">
+          <li>wybierz maksymalnie 3 główne atrakcje dziennie,</li>
+          <li>zaplanuj jedzenie blisko trasy zwiedzania,</li>
+          <li>zostaw minimum godzinę luzu na spontaniczne odkrycia,</li>
+          <li>nie zmieniaj dzielnic co 30 minut.</li>
+        </ul>
+
+        <a href="#" class="read-more">Czytaj poradnik</a>
+      </div>
+
+      <div class="guide-box">
+        <span>02</span>
+        Planowanie krótkiego wyjazdu
+      </div>
     </article>
+
+    <article class="guide-card">
+      <div class="guide-content">
+        <h2>Co zabrać na krótki wyjazd?</h2>
+        <p>
+          Przy weekendowych podróżach najlepiej działa minimalizm. Mały plecak, wygodne buty, powerbank, dokumenty i kilka podstawowych rzeczy wystarczą częściej, niż się wydaje.
+        </p>
+
+        <ul class="guide-list">
+          <li>wygodne buty są ważniejsze niż dodatkowa bluza,</li>
+          <li>powerbank ratuje plan dnia,</li>
+          <li>mała butelka wody i przekąska pomagają uniknąć przepłacania,</li>
+          <li>lista miejsc offline przydaje się, gdy internet zawodzi.</li>
+        </ul>
+
+        <a href="#" class="read-more">Czytaj poradnik</a>
+      </div>
+
+      <div class="guide-box">
+        <span>03</span>
+        Pakowanie bez przesady
+      </div>
+    </article>
+
   </main>
+
+  <footer>
+    <p><strong>Szlakiem Smaku</strong></p>
+    <p>Poradniki tworzone dla tych, którzy chcą podróżować mądrzej, a nie drożej.</p>
+  </footer>
 
 </body>
 </html>
