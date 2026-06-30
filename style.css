@@ -107,9 +107,9 @@ h1, h2, h3,
 /* --- logo w hero strony głównej --- */
 .hero-logo {
   display: block;
-  width: min(360px, 82vw);
+  width: min(280px, 72vw);
   height: auto;
-  margin: 0 auto 22px;
+  margin: 0 auto 18px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xl);
   animation: fadeUp 0.8s var(--ease-out) both, floaty 6s ease-in-out 1s infinite;
