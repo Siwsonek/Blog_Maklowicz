@@ -97,3 +97,28 @@
 .sources h2 { font-size: 18px; margin: 0 0 8px; font-family: Arial, sans-serif; }
 .sources ul { margin: 0 0 0 18px; }
 .sources li { margin-bottom: 5px; }
+
+/* --- komfort czytania: węższa kolumna tekstu artykułu --- */
+/* celuje tylko w treść artykułu (article#main), nie w karty na stronach kategorii */
+article#main {
+  max-width: 760px;
+}
+
+/* --- okruszki (breadcrumbs) --- */
+.breadcrumb {
+  max-width: 760px;
+  margin: 22px auto 0;
+  padding: 0 15px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.breadcrumb a { color: var(--brick); text-decoration: none; font-weight: bold; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb [aria-current="page"] { color: var(--ink); }
+
+/* --- przyklejony pasek nawigacji na stronach-artykułach --- */
+header.sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
