@@ -20,9 +20,9 @@
     }
 
     .category-hero {
-      min-height: 420px;
+      min-height: 430px;
       background:
-        linear-gradient(rgba(43, 33, 24, 0.65), rgba(43, 33, 24, 0.65)),
+        linear-gradient(rgba(43, 33, 24, 0.68), rgba(43, 33, 24, 0.68)),
         url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
@@ -83,75 +83,70 @@
       font-size: 18px;
     }
 
-    .blog-list {
-      max-width: 1100px;
-      margin: 40px auto 70px;
+    .food-grid {
+      max-width: 1150px;
+      margin: 45px auto 70px;
       padding: 0 20px;
       display: grid;
-      gap: 35px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
 
-    .blog-post {
-      display: grid;
-      grid-template-columns: 340px 1fr;
+    .food-card {
       background-color: #fffaf2;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .blog-post:hover {
-      transform: translateY(-6px);
+    .food-card:hover {
+      transform: translateY(-7px);
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .blog-post img {
+    .food-card img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
+      height: 230px;
       object-fit: cover;
     }
 
-    .post-content {
-      padding: 30px;
+    .food-content {
+      padding: 26px;
     }
 
-    .post-meta {
-      color: #8b2f2f;
-      font-size: 14px;
+    .food-label {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 14px;
       font-weight: bold;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
-    .post-content h2 {
+    .food-content h2 {
       font-family: Georgia, serif;
       color: #5d3a1a;
-      font-size: 30px;
+      font-size: 27px;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .food-content p {
+      font-size: 16.5px;
       margin-bottom: 15px;
     }
 
-    .post-content p {
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
-
-    .tags {
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      display: inline-block;
+    .taste-note {
       background-color: #e8d7bd;
-      color: #5d3a1a;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-right: 6px;
-      margin-bottom: 6px;
+      padding: 14px;
+      border-radius: 14px;
+      margin: 18px 0;
       font-weight: bold;
+      color: #5d3a1a;
+      font-size: 15px;
     }
 
     .read-more {
@@ -169,6 +164,27 @@
       background-color: #642020;
     }
 
+    .kitchen-note {
+      max-width: 1000px;
+      margin: 0 auto 70px;
+      padding: 35px;
+      background-color: #fffaf2;
+      border-left: 6px solid #8b2f2f;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+    }
+
+    .kitchen-note h2 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      margin-bottom: 12px;
+      font-size: 30px;
+    }
+
+    .kitchen-note p {
+      font-size: 17px;
+    }
+
     footer {
       background-color: #2b2118;
       color: white;
@@ -176,17 +192,27 @@
       padding: 30px 20px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1000px) {
+      .food-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-content h1 {
         font-size: 42px;
       }
 
-      .blog-post {
-        grid-template-columns: 1fr;
+      .hero-content p {
+        font-size: 17px;
       }
 
-      .blog-post img {
-        height: 240px;
+      .intro h2 {
+        font-size: 30px;
       }
     }
   </style>
@@ -196,96 +222,158 @@
 
   <header class="category-hero">
     <div class="hero-content">
-     <h1>Kuchnia</h1>
-<p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki z różnych zakątków Polski i Europy.</p>
+      <h1>Kuchnia</h1>
+      <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki, czyli podróżowanie przez smak, zapach i rozmowy przy stole.</p>
       <a href="index.html" class="back-link">← Wróć na stronę główną</a>
     </div>
   </header>
 
   <section class="intro">
-    <h2>Wpisy z kategorii: Podróże</h2>
+    <h2>Wpisy z kategorii: Kuchnia</h2>
     <p>
-      W tej części bloga opisujemy ciekawe kierunki na krótkie i dłuższe wyjazdy. 
-      Skupiamy się na atmosferze miejsc, trasach spacerowych, lokalnych zwyczajach i tym, co można zobaczyć poza najbardziej oczywistymi atrakcjami.
+      Kuchnia to jeden z najprostszych sposobów poznawania miejsc. W tej kategorii opisujemy potrawy,
+      które warto spróbować, lokalne zwyczaje kulinarne, targi, restauracje i małe punkty, w których jedzenie
+      opowiada więcej niż niejeden przewodnik.
     </p>
   </section>
 
-  <main class="blog-list">
+  <main class="food-grid">
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=900&q=80" alt="Klimatyczna ulica w Krakowie">
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80" alt="Makaron z sosem na talerzu">
 
-      <div class="post-content">
-        <div class="post-meta">Podróże • Polska • 12 czerwca 2026</div>
-        <h2>Weekend w Krakowie szlakiem obwarzanka</h2>
+      <div class="food-content">
+        <span class="food-label">Włochy</span>
+        <h2>Dlaczego prosty makaron smakuje najlepiej?</h2>
         <p>
-          Kraków można zwiedzać klasycznie: Rynek, Wawel, Sukiennice i Kazimierz. Można jednak pójść inną drogą — przez smak, zapach świeżego pieczywa i rozmowy z ludźmi spotkanymi po drodze.
+          Włoska kuchnia pokazuje, że nie trzeba wielu składników, żeby stworzyć coś wyjątkowego.
+          Liczy się jakość produktów, prostota i czas poświęcony na jedzenie.
         </p>
         <p>
-          W tym wpisie pokazujemy plan weekendu, w którym zabytki mieszają się z lokalnymi kawiarniami, małymi piekarniami i miejscami, gdzie turystyczny Kraków ustępuje temu bardziej prawdziwemu.
+          To opowieść o makaronie, oliwie, pomidorach i kulturze jedzenia bez pośpiechu.
         </p>
 
-        <div class="tags">
-          <span class="tag">Kraków</span>
-          <span class="tag">weekend</span>
-          <span class="tag">Polska</span>
-        </div>
+        <div class="taste-note">Najlepsze dla fanów: prostych dań, oliwy, pomidorów i włoskiego klimatu.</div>
 
-        <a href="krakow.html" class="read-more">Czytaj więcej</a>
+        <a href="#" class="read-more">Czytaj więcej</a>
       </div>
     </article>
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1555990538-c48dbe71e3f1?auto=format&fit=crop&w=900&q=80" alt="Budapeszt i miejski krajobraz">
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80" alt="Kolacja i lokalne dania na stole">
 
-      <div class="post-content">
-        <div class="post-meta">Podróże • Węgry • 18 czerwca 2026</div>
-        <h2>Budapeszt od kuchni i od strony Dunaju</h2>
+      <div class="food-content">
+        <span class="food-label">Bałkany</span>
+        <h2>Smaki Bałkanów: prosto, dużo i z sercem</h2>
         <p>
-          Budapeszt to miasto, które najlepiej poznaje się powoli. Z jednej strony monumentalne mosty, wzgórze zamkowe i widok na Dunaj, z drugiej bary, targi i kuchnia pełna papryki.
+          Bałkańska kuchnia jest konkretna, aromatyczna i bardzo gościnna. Grillowane mięso,
+          świeże warzywa, sery i pieczywo tworzą posiłki, które najlepiej smakują w większym gronie.
         </p>
         <p>
-          Proponujemy trasę, która łączy spacer po najważniejszych punktach miasta z kulinarnymi przystankami: od langosza, przez gulasz, aż po wieczorne kawiarnie.
+          To kuchnia bez nadęcia, ale z ogromnym charakterem.
         </p>
 
-        <div class="tags">
-          <span class="tag">Budapeszt</span>
-          <span class="tag">city break</span>
-          <span class="tag">Węgry</span>
-        </div>
+        <div class="taste-note">Najlepsze dla fanów: grilla, lokalnych knajpek i jedzenia przy długim stole.</div>
 
-        <a href="budapeszt.html" class="read-more">Czytaj więcej</a>
+        <a href="#" class="read-more">Czytaj więcej</a>
       </div>
     </article>
 
-    <article class="blog-post">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Plaża i krajobraz podróżniczy">
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80" alt="Targ z owocami i warzywami">
 
-      <div class="post-content">
-        <div class="post-meta">Podróże • Poradnik • 24 czerwca 2026</div>
-        <h2>Jak zaplanować tani weekendowy wyjazd?</h2>
+      <div class="food-content">
+        <span class="food-label">Targi</span>
+        <h2>Lokalny targ jako najlepszy przewodnik po mieście</h2>
         <p>
-          Dobry wyjazd nie musi oznaczać dużego budżetu. Czasem wystarczy dobra organizacja, elastyczność i wybór miejsc, które nie są oczywiste dla większości turystów.
+          Targ pokazuje, co naprawdę je dane miejsce. Sezonowe warzywa, sery, pieczywo,
+          przyprawy i rozmowy ze sprzedawcami często mówią więcej niż popularne atrakcje.
         </p>
         <p>
-          W artykule pokazujemy, jak wybrać kierunek, kiedy rezerwować nocleg, jak ograniczyć koszty jedzenia i jak ułożyć plan, żeby nie stracić czasu na przypadkowe decyzje.
+          To idealny punkt na rozpoczęcie dnia w nowym mieście.
         </p>
 
-        <div class="tags">
-          <span class="tag">tanie podróże</span>
-          <span class="tag">planowanie</span>
-          <span class="tag">weekend</span>
-        </div>
+        <div class="taste-note">Najlepsze dla fanów: autentycznych miejsc, śniadań i kulinarnych pamiątek.</div>
 
-        <a href="tanie-podroze.html" class="read-more">Czytaj więcej</a>
+        <a href="#" class="read-more">Czytaj więcej</a>
+      </div>
+    </article>
+
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=80" alt="Burger i jedzenie uliczne">
+
+      <div class="food-content">
+        <span class="food-label">Street food</span>
+        <h2>Street food, czyli smak miasta w kilku minutach</h2>
+        <p>
+          Jedzenie uliczne bywa szybkie, tanie i bardzo lokalne. Food trucki, małe bary,
+          budki z przekąskami i nocne punkty często tworzą prawdziwą kulinarną mapę miasta.
+        </p>
+        <p>
+          To dobry wybór, gdy chcesz zwiedzać dużo, ale nie rezygnować z dobrego jedzenia.
+        </p>
+
+        <div class="taste-note">Najlepsze dla fanów: szybkich posiłków, miejskiego klimatu i spontanicznych odkryć.</div>
+
+        <a href="#" class="read-more">Czytaj więcej</a>
+      </div>
+    </article>
+
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Kawa w filiżance">
+
+      <div class="food-content">
+        <span class="food-label">Kawiarnie</span>
+        <h2>Kawa jako pretekst do poznania miasta</h2>
+        <p>
+          Kawiarnie są świetnym miejscem na złapanie rytmu miasta. Można odpocząć,
+          popatrzeć na ludzi, zaplanować dalszą trasę i poczuć codzienność miejsca.
+        </p>
+        <p>
+          Czasem dobra kawa zostaje w pamięci tak samo mocno jak największy zabytek.
+        </p>
+
+        <div class="taste-note">Najlepsze dla fanów: wolnych poranków, kawy i obserwowania miasta.</div>
+
+        <a href="#" class="read-more">Czytaj więcej</a>
+      </div>
+    </article>
+
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&w=900&q=80" alt="Danie regionalne na stole">
+
+      <div class="food-content">
+        <span class="food-label">Regionalnie</span>
+        <h2>Potrawy regionalne, których warto szukać</h2>
+        <p>
+          Każdy region ma coś, co najlepiej smakuje właśnie tam. Czasem jest to zupa,
+          czasem pieczywo, ser, deser albo danie, które powstało z bardzo prostych składników.
+        </p>
+        <p>
+          Szukanie takich smaków sprawia, że podróż staje się bardziej autentyczna.
+        </p>
+
+        <div class="taste-note">Najlepsze dla fanów: tradycji, lokalnych historii i kuchni domowej.</div>
+
+        <a href="#" class="read-more">Czytaj więcej</a>
       </div>
     </article>
 
   </main>
 
+  <section class="kitchen-note">
+    <h2>Dlaczego kuchnia jest ważna w podróży?</h2>
+    <p>
+      Jedzenie pozwala lepiej zrozumieć miejsce, jego historię i codzienność mieszkańców.
+      Lokalna kuchnia pokazuje, jakie produkty są ważne dla regionu, jakie tradycje przetrwały
+      i jak ludzie spędzają czas razem. Dlatego na naszym blogu jedzenie nie jest dodatkiem do podróży,
+      ale jednym z głównych sposobów jej opowiadania.
+    </p>
+  </section>
+
   <footer>
     <p><strong>Szlakiem Smaku</strong></p>
-    <p>Blog podróżniczo-kulinarny tworzony w ramach projektu studenckiego.</p>
+    <p>Kuchnia, podróże i lokalne historie opowiedziane przez smak.</p>
   </footer>
 
 </body>
