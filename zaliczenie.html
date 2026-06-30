@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaliczenie - Szlakiem Smaku</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7efe3;
+      color: #2b2118;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(43, 33, 24, 0.72), rgba(43, 33, 24, 0.72)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 35px 20px 80px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: 75px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #e5b45b;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 28px;
+      font-size: 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 13px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #642020;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: #5d3a1a;
+    }
+
+    .progress-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: #2b2118;
+      padding: 10px 10%;
+    }
+
+    .progress-text {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background-color: #fffaf2;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #e5b45b;
+      border-radius: 20px;
+      transition: width 0.3s;
+    }
+
+    section {
+      padding: 65px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 38px;
+      color: #5d3a1a;
+      margin-bottom: 18px;
+    }
+
+    .section-lead {
+      max-width: 900px;
+      text-align: center;
+      margin: 0 auto 40px;
+      font-size: 18px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .profile-card {
+      background-color: #fffaf2;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .profile-card span {
+      font-size: 38px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .profile-card h3 {
+      color: #5d3a1a;
+      font-family: Georgia, serif;
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    .target {
+      background-color: #fffaf2;
+    }
+
+    .target-box {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .target-card {
+      background-color: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    }
+
+    .target-card h3 {
+      color: #8b2f2f;
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .target-card ul {
+      margin-left: 20px;
+    }
+
+    .target-card li {
+      margin-bottom: 9px;
+    }
+
+    .visual {
+      background-color: #e8d7bd;
+    }
+
+    .brand-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo-demo,
+    .colors-demo,
+    .fonts-demo,
+    .tone-demo {
+      background-color: #fffaf2;
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .logo-mark {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background-color: #8b2f2f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 52px;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .logo-demo h3 {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #5d3a1a;
+      margin-bottom: 8px;
+    }
+
+    .logo-demo p {
+      text-align: center;
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .color-box {
+      min-height: 110px;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      align-items: end;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .c1 {
+      background-color: #f7efe3;
+      color: #2b2118;
+      border: 1px solid #d6c5aa;
+    }
+
+    .c2 {
+      background-color: #fffaf2;
+      color: #2b2118;
+      border: 1px solid #d6c5aa;
+    }
+
+    .c3 {
+      background-color: #5d3a1a;
+      color: white;
+    }
+
+    .c4 {
+      background-color: #8b2f2f;
+      color: white;
+    }
+
+    .fonts-demo h3,
+    .colors-demo h3,
+    .tone-demo h3 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .font-sample-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #5d3a1a;
+      margin: 15px 0 5px;
+    }
+
+    .font-sample-body {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+    }
+
+    .communication {
+      background-color: #f7efe3;
+    }
+
+    .tabs {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #fffaf2;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      border: none;
+      background-color: #e8d7bd;
+      color: #5d3a1a;
+      padding: 11px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background-color: #8b2f2f;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 22px;
+      background-color: white;
+      border-radius: 18px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content h3 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .strategy {
+      background-color: #fffaf2;
+    }
+
+    .strategy-timeline {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .timeline-number {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #8b2f2f;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    .timeline-content {
+      background-color: white;
+      padding: 26px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    }
+
+    .timeline-content h3 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      margin-bottom: 8px;
+      font-size: 25px;
+    }
+
+    .ethics {
+      background-color: #e8d7bd;
+    }
+
+    .accordion {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion-item {
+      background-color: #fffaf2;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    }
+
+    .accordion-header {
+      width: 100%;
+      border: none;
+      background-color: #fffaf2;
+      color: #5d3a1a;
+      text-align: left;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-header:hover {
+      background-color: #f2e4cf;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      background-color: white;
+      padding: 0 22px;
+    }
+
+    .accordion-content p {
+      padding: 18px 0 24px;
+    }
+
+    .accessibility {
+      background-color: #fffaf2;
+    }
+
+    .checklist {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 32px;
+      border-radius: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 15px;
+      margin-bottom: 12px;
+      background-color: #f7efe3;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .checklist label:hover {
+      background-color: #e8d7bd;
+    }
+
+    .checklist input {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .check-result {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 16px;
+      background-color: #e8d7bd;
+      color: #5d3a1a;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .summary {
+      background-color: #2b2118;
+      color: white;
+      text-align: center;
+    }
+
+    .summary h2 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    .summary p {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: #1d1712;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 1000px) {
+      .profile-grid,
+      .brand-board {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .target-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 50px 6%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .profile-grid,
+      .brand-board {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .color-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .progress-wrapper {
+        padding: 10px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Strona główna</a>
+      <a href="#profil">Profil</a>
+      <a href="#grupa">Grupa docelowa</a>
+      <a href="#identyfikacja">Identyfikacja</a>
+      <a href="#komunikacja">Komunikacja</a>
+      <a href="#etyka">Etyka</a>
+      <a href="#dostepnosc">Dostępność</a>
+    </nav>
+
+    <div class="hero">
+      <h1>Projekt portalu „Szlakiem Smaku”</h1>
+      <p>
+        Interaktywna prezentacja koncepcji redakcji: profilu portalu, grupy docelowej,
+        identyfikacji wizualnej, form komunikacji, promocji, zasad etycznych i dostępności.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#profil" class="btn">Rozpocznij prezentację</a>
+        <a href="index.html" class="btn btn-outline">Wróć do portalu</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="progress-wrapper">
+    <div class="progress-text">
+      <span>Postęp prezentacji</span>
+      <span id="progressPercent">0%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <section id="profil">
+    <h2 class="section-title">1. Profil redakcji</h2>
+    <p class="section-lead">
+      „Szlakiem Smaku” to portal podróżniczo-kulinarny. Pokazujemy miejsca przez jedzenie,
+      lokalne historie, atmosferę ulic, targów, restauracji i kawiarni.
+    </p>
+
+    <div class="profile-grid">
+      <div class="profile-card">
+        <span>✈️</span>
+        <h3>Podróże</h3>
+        <p>Tanie city breaki, weekendowe trasy i kierunki warte odwiedzenia.</p>
+      </div>
+
+      <div class="profile-card">
+        <span>🍽️</span>
+        <h3>Kuchnia</h3>
+        <p>Knajpy, lokalne dania i propozycje jedzenia w różnych budżetach.</p>
+      </div>
+
+      <div class="profile-card">
+        <span>📍</span>
+        <h3>Mapa smaków</h3>
+        <p>Subiektywna mapa miejsc, do których warto wrócić dla klimatu i smaku.</p>
+      </div>
+
+      <div class="profile-card">
+        <span>🧭</span>
+        <h3>Poradniki</h3>
+        <p>Praktyczne wskazówki o planowaniu wyjazdów i oszczędzaniu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="target" id="grupa">
+    <h2 class="section-title">2. Grupa docelowa</h2>
+    <p class="section-lead">
+      Portal kierujemy do osób, które chcą podróżować ciekawie, ale rozsądnie finansowo.
+      Odbiorcy szukają konkretnych poleceń, inspiracji i gotowych pomysłów.
+    </p>
+
+    <div class="target-box">
+      <div class="target-card">
+        <h3>Kim są odbiorcy?</h3>
+        <ul>
+          <li>osoby w wieku około 18–35 lat,</li>
+          <li>studenci i młodzi dorośli,</li>
+          <li>osoby planujące krótkie wyjazdy,</li>
+          <li>fani lokalnego jedzenia i city breaków,</li>
+          <li>użytkownicy social mediów.</li>
+        </ul>
+      </div>
+
+      <div class="target-card">
+        <h3>Czego szukają?</h3>
+        <ul>
+          <li>taniego podróżowania,</li>
+          <li>miejsc z dobrym jedzeniem,</li>
+          <li>rankingów, ocen i krótkich opisów,</li>
+          <li>praktycznych porad,</li>
+          <li>autentycznych, nieturystycznych miejsc.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="visual" id="identyfikacja">
+    <h2 class="section-title">3. Nazwa i identyfikacja wizualna</h2>
+    <p class="section-lead">
+      Nazwa „Szlakiem Smaku” łączy podróżowanie ze smakowaniem miejsc.
+      Identyfikacja wizualna jest ciepła, czytelna i inspirowana mapami, kawą, jedzeniem i podróżą.
+    </p>
+
+    <div class="brand-board">
+      <div class="logo-demo">
+        <div class="logo-mark">🍴</div>
+        <h3>Szlakiem Smaku</h3>
+        <p>Propozycja logo: symbol sztućców, mapy lub pinezki połączony z nazwą portalu.</p>
+      </div>
+
+      <div class="colors-demo">
+        <h3>Kolorystyka</h3>
+        <p>Kolory są spójne z obecną stroną: ciepłe, naturalne i czytelne.</p>
+
+        <div class="color-row">
+          <div class="color-box c1">#f7efe3</div>
+          <div class="color-box c2">#fffaf2</div>
+          <div class="color-box c3">#5d3a1a</div>
+          <div class="color-box c4">#8b2f2f</div>
+        </div>
+      </div>
+
+      <div class="fonts-demo">
+        <h3>Fonty</h3>
+        <p class="font-sample-title">Nagłówki: Georgia</p>
+        <p class="font-sample-body">Tekst główny: Arial — prosty, czytelny i wygodny do czytania na telefonie oraz komputerze.</p>
+      </div>
+
+      <div class="tone-demo">
+        <h3>Styl komunikacji</h3>
+        <p>
+          Język portalu jest przystępny, lekki i praktyczny. Nie udajemy encyklopedii —
+          piszemy jak osoba, która chce polecić dobre miejsce znajomemu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="communication" id="komunikacja">
+    <h2 class="section-title">4. Formy komunikacji</h2>
+    <p class="section-lead">
+      Portal nie ogranicza się tylko do tekstu. Treści można rozwijać w różnych formatach,
+      tak aby pasowały do strony internetowej i social mediów.
+    </p>
+
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showTab('tekst')">Tekst</button>
+        <button class="tab-btn" onclick="showTab('video')">Video</button>
+        <button class="tab-btn" onclick="showTab('grafiki')">Grafiki</button>
+        <button class="tab-btn" onclick="showTab('audio')">Audio</button>
+      </div>
+
+      <div class="tab-content active" id="tekst">
+        <h3>Artykuły i wpisy blogowe</h3>
+        <p>
+          Podstawą portalu są artykuły: rankingi miejsc, relacje z podróży, poradniki,
+          opisy tanich kierunków, recenzje miejsc i przewodniki kulinarne.
+        </p>
+      </div>
+
+      <div class="tab-content" id="video">
+        <h3>Krótkie materiały video</h3>
+        <p>
+          Rolki i krótkie filmy mogą pokazywać trasy, lokalne jedzenie, targi, restauracje
+          oraz szybkie porady typu „3 miejsca na tani weekend”.
+        </p>
+      </div>
+
+      <div class="tab-content" id="grafiki">
+        <h3>Mapy, checklisty i infografiki</h3>
+        <p>
+          Grafiki ułatwiają szybkie przyswajanie treści: przykładowe budżety, mapy smaków,
+          listy miejsc, porównania kierunków i checklisty pakowania.
+        </p>
+      </div>
+
+      <div class="tab-content" id="audio">
+        <h3>Podcasty i nagrania</h3>
+        <p>
+          Dodatkową formą mogą być krótkie odcinki audio z opowieściami o miejscach,
+          rozmowami z podróżnikami albo lokalnymi restauratorami.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="strategy">
+    <h2 class="section-title">5. Strategia promocji i angażowania czytelników</h2>
+    <p class="section-lead">
+      Promocja opiera się na krótkich, atrakcyjnych treściach w social mediach oraz aktywnym
+      zapraszaniu odbiorców do współtworzenia portalu.
+    </p>
+
+    <div class="strategy-timeline">
+      <div class="timeline-item">
+        <div class="timeline-number">1</div>
+        <div class="timeline-content">
+          <h3>Social media</h3>
+          <p>Instagram, TikTok i Facebook: rolki, zdjęcia, karuzele, rankingi i krótkie polecenia miejsc.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-number">2</div>
+        <div class="timeline-content">
+          <h3>Chwytliwe serie</h3>
+          <p>Przykłady serii: „Tani weekend w Europie”, „3 knajpy w jednej stolicy”, „Mapa smaków tygodnia”.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-number">3</div>
+        <div class="timeline-content">
+          <h3>Angażowanie odbiorców</h3>
+          <p>Ankiety, pytania, głosowania, możliwość zgłaszania własnych miejsc i tworzenie rankingów razem z czytelnikami.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-number">4</div>
+        <div class="timeline-content">
+          <h3>Sezonowość</h3>
+          <p>Treści dopasowane do okazji: majówka, wakacje, jesienne city breaki, ferie, tanie kierunki na weekend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ethics" id="etyka">
+    <h2 class="section-title">6. Zasady etyczne</h2>
+    <p class="section-lead">
+      Kliknij poniższe punkty, aby rozwinąć zasady, którymi kieruje się redakcja.
+    </p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">Rzetelność informacji <span>+</span></button>
+        <div class="accordion-content">
+          <p>Sprawdzamy podstawowe informacje przed publikacją: lokalizacje, ceny, godziny otwarcia i aktualność polecanych miejsc.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Brak fałszywych opinii <span>+</span></button>
+        <div class="accordion-content">
+          <p>Nie publikujemy zmyślonych recenzji ani sztucznie pozytywnych opinii o restauracjach, hotelach czy atrakcjach.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Oznaczanie reklam <span>+</span></button>
+        <div class="accordion-content">
+          <p>Współprace komercyjne, zaproszenia i materiały sponsorowane muszą być jasno oznaczone dla odbiorcy.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Szacunek do lokalnych społeczności <span>+</span></button>
+        <div class="accordion-content">
+          <p>Nie promujemy zachowań, które szkodzą mieszkańcom, kulturze, małym biznesom lub środowisku.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Prawa autorskie <span>+</span></button>
+        <div class="accordion-content">
+          <p>Nie kopiujemy cudzych zdjęć, tekstów ani grafik bez zgody. Korzystamy z własnych materiałów albo legalnych źródeł.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="accessibility" id="dostepnosc">
+    <h2 class="section-title">7. Dostępność treści</h2>
+    <p class="section-lead">
+      Dostępność oznacza, że portal powinien być wygodny także dla osób z różnymi potrzebami.
+      Zaznacz punkty, które spełnia dobrze przygotowana treść.
+    </p>
+
+    <div class="checklist">
+      <label>
+        <input type="checkbox" class="access-check">
+        Dodajemy opisy alternatywne do zdjęć.
+      </label>
+
+      <label>
+        <input type="checkbox" class="access-check">
+        Stosujemy czytelny kontrast i odpowiednio dużą czcionkę.
+      </label>
+
+      <label>
+        <input type="checkbox" class="access-check">
+        Do filmów dodajemy napisy lub transkrypcję.
+      </label>
+
+      <label>
+        <input type="checkbox" class="access-check">
+        Dzielimy teksty na krótkie akapity i nagłówki.
+      </label>
+
+      <label>
+        <input type="checkbox" class="access-check">
+        Strona działa na telefonie, tablecie i komputerze.
+      </label>
+
+      <div class="check-result" id="checkResult">
+        Zaznacz punkty, aby sprawdzić poziom dostępności.
+      </div>
+    </div>
+  </section>
+
+  <section class="summary">
+    <h2>Podsumowanie projektu</h2>
+    <p>
+      „Szlakiem Smaku” to portal podróżniczo-kulinarny, który łączy praktyczne poradniki,
+      inspiracje wyjazdowe, polecenia miejsc i ciepłą identyfikację wizualną. Projekt jest
+      spójny z ideą odkrywania świata przez jedzenie, lokalność i autentyczne doświadczenia.
+    </p>
+    <a href="index.html" class="btn">Przejdź do strony głównej</a>
+  </section>
+
+  <footer>
+    <p><strong>Szlakiem Smaku</strong></p>
+    <p>Interaktywna podstrona zaliczeniowa projektu portalu.</p>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('span');
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          icon.textContent = '+';
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
+      });
+    });
+
+    const checks = document.querySelectorAll('.access-check');
+    const checkResult = document.getElementById('checkResult');
+
+    checks.forEach(check => {
+      check.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('.access-check:checked').length;
+        const total = checks.length;
+
+        if (checkedCount === 0) {
+          checkResult.textContent = 'Zaznacz punkty, aby sprawdzić poziom dostępności.';
+        } else if (checkedCount < 3) {
+          checkResult.textContent = 'Poziom dostępności: podstawowy. Warto wdrożyć więcej zasad.';
+        } else if (checkedCount < total) {
+          checkResult.textContent = 'Poziom dostępności: dobry. Strona jest coraz bardziej przyjazna dla odbiorców.';
+        } else {
+          checkResult.textContent = 'Poziom dostępności: bardzo dobry. Treść jest przygotowana z myślą o różnych potrzebach użytkowników.';
+        }
+      });
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    const progressPercent = document.getElementById('progressPercent');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.round((scrollTop / docHeight) * 100);
+
+      progressFill.style.width = progress + '%';
+      progressPercent.textContent = progress + '%';
+    });
+  </script>
+
+</body>
+</html>
