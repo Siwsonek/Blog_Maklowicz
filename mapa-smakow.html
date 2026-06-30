@@ -2,30 +2,275 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Mapa smaków - Smaki Świata</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa smaków - Szlakiem Smaku</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7efe3;
+      color: #2b2118;
+      line-height: 1.6;
+    }
+
+    .category-hero {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(35, 24, 16, 0.68), rgba(35, 24, 16, 0.68)),
+        url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, serif;
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: white;
+      color: #5d3a1a;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 60px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-family: Georgia, serif;
+      font-size: 36px;
+      color: #5d3a1a;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 18px;
+    }
+
+    .taste-map {
+      max-width: 1100px;
+      margin: 45px auto 70px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .place-card {
+      background-color: #fffaf2;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .place-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .place-content {
+      padding: 28px;
+    }
+
+    .place-label {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+
+    .place-content h2 {
+      font-family: Georgia, serif;
+      color: #5d3a1a;
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .place-content p {
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .rating {
+      background-color: #e8d7bd;
+      padding: 14px;
+      border-radius: 14px;
+      margin: 18px 0;
+      font-weight: bold;
+      color: #5d3a1a;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #8b2f2f;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background-color: #642020;
+    }
+
+    footer {
+      background-color: #2b2118;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .taste-map {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="subpage-header">
-    <h1>Mapa smaków</h1>
-    <p>Subiektywna mapa miejsc, w których warto coś zjeść.</p>
-    <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+  <header class="category-hero">
+    <div class="hero-content">
+      <h1>Mapa smaków</h1>
+      <p>Subiektywny przewodnik po miejscach, w których warto zatrzymać się na coś dobrego — od targów i kawiarni po małe lokale z charakterem.</p>
+      <a href="index.html" class="back-link">← Wróć na stronę główną</a>
+    </div>
   </header>
 
-  <main class="blog-list">
-    <article class="blog-post">
-      <h2>Gdzie zjeść najlepszą pizzę?</h2>
-      <p>Krótki przewodnik po miejscach, które zapamiętuje się po pierwszym kęsie.</p>
-      <a href="#">Czytaj więcej</a>
+  <section class="intro">
+    <h2>Nasze kulinarne punkty na mapie</h2>
+    <p>
+      Tutaj nie tworzymy zwykłego katalogu restauracji. Zbieramy miejsca, które mają klimat, smak i historię.
+      Czasem będzie to znana miejscówka w centrum miasta, a czasem mały bar, który łatwo ominąć, ale trudno zapomnieć.
+    </p>
+  </section>
+
+  <main class="taste-map">
+
+    <article class="place-card">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80" alt="Restauracja z ciepłym klimatem">
+      <div class="place-content">
+        <span class="place-label">Restauracja</span>
+        <h2>Klimatyczna kolacja na Kazimierzu</h2>
+        <p>
+          Miejsce idealne na wieczorny spacer po Krakowie zakończony spokojną kolacją. Ciepłe światło, niewielka sala i menu oparte na prostych składnikach.
+        </p>
+        <p>
+          Największy plus? Atmosfera. To lokal, w którym nie je się w pośpiechu, tylko zostaje chwilę dłużej.
+        </p>
+        <div class="rating">Ocena klimatu: 9/10 • Najlepsze na spokojny wieczór</div>
+        <a href="krakow.html" class="read-more">Zobacz miejsce</a>
+      </div>
     </article>
 
-    <article class="blog-post">
-      <h2>Kawiarnie z klimatem</h2>
-      <p>Miejsca, w których kawa jest tylko początkiem całej podróży.</p>
-      <a href="#">Czytaj więcej</a>
+    <article class="place-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Kawa w kawiarni">
+      <div class="place-content">
+        <span class="place-label">Kawiarnia</span>
+        <h2>Kawiarnia na leniwe przedpołudnie</h2>
+        <p>
+          Dobre miejsce na rozpoczęcie dnia w podróży. Mocna kawa, coś słodkiego i stoliki przy oknie, z których można obserwować życie miasta.
+        </p>
+        <p>
+          Takie lokale często najlepiej pokazują codzienny rytm miejsca — bez atrakcji, bez pośpiechu, za to z autentycznym klimatem.
+        </p>
+        <div class="rating">Ocena klimatu: 8.5/10 • Najlepsze na śniadanie</div>
+        <a href="#" class="read-more">Zobacz miejsce</a>
+      </div>
     </article>
+
+    <article class="place-card">
+      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80" alt="Lokalny targ z warzywami">
+      <div class="place-content">
+        <span class="place-label">Targ</span>
+        <h2>Lokalny targ zamiast supermarketu</h2>
+        <p>
+          Targi są jednymi z najlepszych miejsc do poznawania miasta. Widać tam, co naprawdę jedzą mieszkańcy, jakie produkty są sezonowe i jak wygląda lokalna codzienność.
+        </p>
+        <p>
+          To dobry punkt na szybkie śniadanie, zakup pamiątek kulinarnych albo po prostu spacer między straganami.
+        </p>
+        <div class="rating">Ocena klimatu: 9.5/10 • Najlepsze rano</div>
+        <a href="#" class="read-more">Zobacz miejsce</a>
+      </div>
+    </article>
+
+    <article class="place-card">
+      <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=80" alt="Jedzenie uliczne">
+      <div class="place-content">
+        <span class="place-label">Street food</span>
+        <h2>Szybko, lokalnie i bez udawania</h2>
+        <p>
+          Nie każde dobre jedzenie wymaga eleganckiej restauracji. Czasem najlepszy smak miasta znajduje się w małym punkcie z jedzeniem na wynos.
+        </p>
+        <p>
+          Street food sprawdza się szczególnie wtedy, gdy chcesz dużo zobaczyć, ale nie chcesz rezygnować z jedzenia z charakterem.
+        </p>
+        <div class="rating">Ocena klimatu: 8/10 • Najlepsze w trasie</div>
+        <a href="budapeszt.html" class="read-more">Zobacz miejsce</a>
+      </div>
+    </article>
+
   </main>
+
+  <footer>
+    <p><strong>Szlakiem Smaku</strong></p>
+    <p>Mapa smaków tworzona z miejsc, do których naprawdę chce się wracać.</p>
+  </footer>
 
 </body>
 </html>
