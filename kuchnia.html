@@ -83,39 +83,41 @@
       font-size: 18px;
     }
 
-    .food-grid {
-      max-width: 1150px;
-      margin: 45px auto 70px;
+    .city-section {
+      max-width: 1100px;
+      margin: 45px auto;
       padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
     }
 
-    .food-card {
+    .city-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #5d3a1a;
+      margin-bottom: 22px;
+      border-left: 6px solid #8b2f2f;
+      padding-left: 15px;
+    }
+
+    .food-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .food-place {
       background-color: #fffaf2;
-      border-radius: 22px;
-      overflow: hidden;
+      padding: 24px;
+      border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .food-card:hover {
-      transform: translateY(-7px);
+    .food-place:hover {
+      transform: translateY(-6px);
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .food-card img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-    }
-
-    .food-content {
-      padding: 26px;
-    }
-
-    .food-label {
+    .budget-label {
       display: inline-block;
       background-color: #8b2f2f;
       color: white;
@@ -126,63 +128,42 @@
       font-weight: bold;
     }
 
-    .food-content h2 {
+    .food-place h3 {
       font-family: Georgia, serif;
       color: #5d3a1a;
-      font-size: 27px;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .food-place p {
+      font-size: 16px;
       margin-bottom: 12px;
-      line-height: 1.25;
     }
 
-    .food-content p {
-      font-size: 16.5px;
-      margin-bottom: 15px;
-    }
-
-    .taste-note {
+    .score {
       background-color: #e8d7bd;
-      padding: 14px;
+      padding: 13px;
       border-radius: 14px;
-      margin: 18px 0;
-      font-weight: bold;
       color: #5d3a1a;
-      font-size: 15px;
-    }
-
-    .read-more {
-      display: inline-block;
-      background-color: #8b2f2f;
-      color: white;
-      padding: 11px 24px;
-      border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      margin-top: 15px;
     }
 
-    .read-more:hover {
-      background-color: #642020;
-    }
-
-    .kitchen-note {
+    .note {
       max-width: 1000px;
-      margin: 0 auto 70px;
+      margin: 70px auto;
       padding: 35px;
       background-color: #fffaf2;
       border-left: 6px solid #8b2f2f;
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
     }
 
-    .kitchen-note h2 {
+    .note h2 {
       font-family: Georgia, serif;
       color: #5d3a1a;
       margin-bottom: 12px;
       font-size: 30px;
-    }
-
-    .kitchen-note p {
-      font-size: 17px;
     }
 
     footer {
@@ -192,27 +173,13 @@
       padding: 30px 20px;
     }
 
-    @media (max-width: 1000px) {
-      .food-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .food-grid {
+    @media (max-width: 950px) {
+      .food-list {
         grid-template-columns: 1fr;
       }
 
       .hero-content h1 {
         font-size: 42px;
-      }
-
-      .hero-content p {
-        font-size: 17px;
-      }
-
-      .intro h2 {
-        font-size: 30px;
       }
     }
   </style>
@@ -223,157 +190,138 @@
   <header class="category-hero">
     <div class="hero-content">
       <h1>Kuchnia</h1>
-      <p>Lokalne potrawy, restauracje, targi i kulinarne ciekawostki, czyli podróżowanie przez smak, zapach i rozmowy przy stole.</p>
+      <p>Gdzie zjeść w europejskich stolicach? Propozycje dla różnych budżetów: tanio, średnio i trochę bardziej premium.</p>
       <a href="index.html" class="back-link">← Wróć na stronę główną</a>
     </div>
   </header>
 
   <section class="intro">
-    <h2>Wpisy z kategorii: Kuchnia</h2>
+    <h2>Knajpy i jedzenie w różnych budżetach</h2>
     <p>
-      Kuchnia to jeden z najprostszych sposobów poznawania miejsc. W tej kategorii opisujemy potrawy,
-      które warto spróbować, lokalne zwyczaje kulinarne, targi, restauracje i małe punkty, w których jedzenie
-      opowiada więcej niż niejeden przewodnik.
+      W tej sekcji pokazujemy, jak można zaplanować jedzenie podczas city breaka. Nie zawsze trzeba iść do najdroższej restauracji,
+      żeby dobrze zjeść. Czasem najlepszy klimat jest w małym barze, na targu albo w miejscu, gdzie stołują się mieszkańcy.
     </p>
   </section>
 
-  <main class="food-grid">
+  <section class="city-section">
+    <h2 class="city-title">Budapeszt</h2>
 
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80" alt="Makaron z sosem na talerzu">
-
-      <div class="food-content">
-        <span class="food-label">Włochy</span>
-        <h2>Dlaczego prosty makaron smakuje najlepiej?</h2>
+    <div class="food-list">
+      <article class="food-place">
+        <span class="budget-label">Budżetowo</span>
+        <h3>Langosz z budki</h3>
         <p>
-          Włoska kuchnia pokazuje, że nie trzeba wielu składników, żeby stworzyć coś wyjątkowego.
-          Liczy się jakość produktów, prostota i czas poświęcony na jedzenie.
+          Idealna opcja na szybki i tani posiłek. Klasyczny langosz z czosnkiem, śmietaną i serem jest sycący, lokalny i bardzo konkretny.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które chcą zjeść szybko i tanio między zwiedzaniem.</p>
+        <div class="score">Cena: niska • Klimat: 8/10 • Sytość: 10/10</div>
+      </article>
+
+      <article class="food-place">
+        <span class="budget-label">Średni budżet</span>
+        <h3>Gulasz w lokalnej gospodzie</h3>
         <p>
-          To opowieść o makaronie, oliwie, pomidorach i kulturze jedzenia bez pośpiechu.
+          Dobry wybór na spokojniejszy obiad. Węgierska kuchnia jest aromatyczna, rozgrzewająca i bardzo dobra po całym dniu chodzenia.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które chcą spróbować klasycznej kuchni bez przepłacania.</p>
+        <div class="score">Cena: średnia • Klimat: 9/10 • Smak: 9/10</div>
+      </article>
 
-        <div class="taste-note">Najlepsze dla fanów: prostych dań, oliwy, pomidorów i włoskiego klimatu.</div>
-
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80" alt="Kolacja i lokalne dania na stole">
-
-      <div class="food-content">
-        <span class="food-label">Bałkany</span>
-        <h2>Smaki Bałkanów: prosto, dużo i z sercem</h2>
+      <article class="food-place">
+        <span class="budget-label">Premium</span>
+        <h3>Kolacja z widokiem na Dunaj</h3>
         <p>
-          Bałkańska kuchnia jest konkretna, aromatyczna i bardzo gościnna. Grillowane mięso,
-          świeże warzywa, sery i pieczywo tworzą posiłki, które najlepiej smakują w większym gronie.
+          Opcja na wieczór, kiedy liczy się nie tylko jedzenie, ale też atmosfera. Widok na rzekę i mosty robi ogromną robotę.
         </p>
+        <p><strong>Dla kogo?</strong> Na randkę, specjalny wieczór albo zakończenie wyjazdu.</p>
+        <div class="score">Cena: wyższa • Klimat: 10/10 • Efekt wow: 9/10</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="city-section">
+    <h2 class="city-title">Praga</h2>
+
+    <div class="food-list">
+      <article class="food-place">
+        <span class="budget-label">Budżetowo</span>
+        <h3>Czeska kanapka i kawa</h3>
         <p>
-          To kuchnia bez nadęcia, ale z ogromnym charakterem.
+          Szybkie, tanie i dobre rozwiązanie na start dnia. W Pradze łatwo znaleźć małe punkty, gdzie można zjeść coś prostego przed zwiedzaniem.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które wolą oszczędzić budżet na późniejszy obiad.</p>
+        <div class="score">Cena: niska • Klimat: 7/10 • Praktyczność: 9/10</div>
+      </article>
 
-        <div class="taste-note">Najlepsze dla fanów: grilla, lokalnych knajpek i jedzenia przy długim stole.</div>
-
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80" alt="Targ z owocami i warzywami">
-
-      <div class="food-content">
-        <span class="food-label">Targi</span>
-        <h2>Lokalny targ jako najlepszy przewodnik po mieście</h2>
+      <article class="food-place">
+        <span class="budget-label">Średni budżet</span>
+        <h3>Knajpa z czeską kuchnią</h3>
         <p>
-          Targ pokazuje, co naprawdę je dane miejsce. Sezonowe warzywa, sery, pieczywo,
-          przyprawy i rozmowy ze sprzedawcami często mówią więcej niż popularne atrakcje.
+          Knedliki, mięso w sosie i lokalny klimat. Taki obiad jest sycący, tradycyjny i dobrze pasuje do chłodniejszych dni.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które chcą poczuć klasyczny smak Czech.</p>
+        <div class="score">Cena: średnia • Klimat: 8.5/10 • Sytość: 9/10</div>
+      </article>
+
+      <article class="food-place">
+        <span class="budget-label">Premium</span>
+        <h3>Nowoczesna restauracja w centrum</h3>
         <p>
-          To idealny punkt na rozpoczęcie dnia w nowym mieście.
+          Dobra opcja dla tych, którzy chcą spróbować kuchni czeskiej w bardziej eleganckim wydaniu, ale nadal z lokalnym charakterem.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które chcą czegoś bardziej dopracowanego.</p>
+        <div class="score">Cena: wyższa • Klimat: 9/10 • Smak: 9/10</div>
+      </article>
+    </div>
+  </section>
 
-        <div class="taste-note">Najlepsze dla fanów: autentycznych miejsc, śniadań i kulinarnych pamiątek.</div>
+  <section class="city-section">
+    <h2 class="city-title">Rzym</h2>
 
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=80" alt="Burger i jedzenie uliczne">
-
-      <div class="food-content">
-        <span class="food-label">Street food</span>
-        <h2>Street food, czyli smak miasta w kilku minutach</h2>
+    <div class="food-list">
+      <article class="food-place">
+        <span class="budget-label">Budżetowo</span>
+        <h3>Pizza al taglio</h3>
         <p>
-          Jedzenie uliczne bywa szybkie, tanie i bardzo lokalne. Food trucki, małe bary,
-          budki z przekąskami i nocne punkty często tworzą prawdziwą kulinarną mapę miasta.
+          Pizza na kawałki to jedna z najlepszych opcji na tani posiłek w Rzymie. Szybko, lokalnie i bez siedzenia godzinami w restauracji.
         </p>
+        <p><strong>Dla kogo?</strong> Dla osób, które chcą dużo zwiedzać i jeść w biegu.</p>
+        <div class="score">Cena: niska • Klimat: 8/10 • Smak: 9/10</div>
+      </article>
+
+      <article class="food-place">
+        <span class="budget-label">Średni budżet</span>
+        <h3>Trattoria z makaronem</h3>
         <p>
-          To dobry wybór, gdy chcesz zwiedzać dużo, ale nie rezygnować z dobrego jedzenia.
+          Carbonara, cacio e pepe albo amatriciana. Proste dania, które w Rzymie smakują najlepiej wtedy, gdy lokal nie próbuje być zbyt turystyczny.
         </p>
+        <p><strong>Dla kogo?</strong> Dla fanów klasycznej włoskiej kuchni.</p>
+        <div class="score">Cena: średnia • Klimat: 9/10 • Smak: 10/10</div>
+      </article>
 
-        <div class="taste-note">Najlepsze dla fanów: szybkich posiłków, miejskiego klimatu i spontanicznych odkryć.</div>
-
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Kawa w filiżance">
-
-      <div class="food-content">
-        <span class="food-label">Kawiarnie</span>
-        <h2>Kawa jako pretekst do poznania miasta</h2>
+      <article class="food-place">
+        <span class="budget-label">Premium</span>
+        <h3>Kolacja przy klimatycznej uliczce</h3>
         <p>
-          Kawiarnie są świetnym miejscem na złapanie rytmu miasta. Można odpocząć,
-          popatrzeć na ludzi, zaplanować dalszą trasę i poczuć codzienność miejsca.
+          Rzym wieczorem ma niesamowity klimat. Dobra kolacja przy małej uliczce potrafi być jednym z najmocniejszych wspomnień z wyjazdu.
         </p>
-        <p>
-          Czasem dobra kawa zostaje w pamięci tak samo mocno jak największy zabytek.
-        </p>
+        <p><strong>Dla kogo?</strong> Na spokojny wieczór i pełne włoskie doświadczenie.</p>
+        <div class="score">Cena: wyższa • Klimat: 10/10 • Efekt wow: 9/10</div>
+      </article>
+    </div>
+  </section>
 
-        <div class="taste-note">Najlepsze dla fanów: wolnych poranków, kawy i obserwowania miasta.</div>
-
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&w=900&q=80" alt="Danie regionalne na stole">
-
-      <div class="food-content">
-        <span class="food-label">Regionalnie</span>
-        <h2>Potrawy regionalne, których warto szukać</h2>
-        <p>
-          Każdy region ma coś, co najlepiej smakuje właśnie tam. Czasem jest to zupa,
-          czasem pieczywo, ser, deser albo danie, które powstało z bardzo prostych składników.
-        </p>
-        <p>
-          Szukanie takich smaków sprawia, że podróż staje się bardziej autentyczna.
-        </p>
-
-        <div class="taste-note">Najlepsze dla fanów: tradycji, lokalnych historii i kuchni domowej.</div>
-
-        <a href="#" class="read-more">Czytaj więcej</a>
-      </div>
-    </article>
-
-  </main>
-
-  <section class="kitchen-note">
-    <h2>Dlaczego kuchnia jest ważna w podróży?</h2>
+  <section class="note">
+    <h2>Jak wybieramy miejsca?</h2>
     <p>
-      Jedzenie pozwala lepiej zrozumieć miejsce, jego historię i codzienność mieszkańców.
-      Lokalna kuchnia pokazuje, jakie produkty są ważne dla regionu, jakie tradycje przetrwały
-      i jak ludzie spędzają czas razem. Dlatego na naszym blogu jedzenie nie jest dodatkiem do podróży,
-      ale jednym z głównych sposobów jej opowiadania.
+      Nie chodzi tylko o cenę. Liczy się też klimat, lokalność, stosunek jakości do ceny i to, czy miejsce pasuje do charakteru podróży.
+      W jednym mieście najlepszym wyborem będzie targ, w innym mała trattoria, a czasem warto dopłacić do kolacji z widokiem.
     </p>
   </section>
 
   <footer>
     <p><strong>Szlakiem Smaku</strong></p>
-    <p>Kuchnia, podróże i lokalne historie opowiedziane przez smak.</p>
+    <p>Jedzenie w podróży — od tanich przekąsek po kolacje z klimatem.</p>
   </footer>
 
 </body>
